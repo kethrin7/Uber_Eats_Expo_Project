@@ -7,10 +7,10 @@ import Registration from "./src/components/screens/Registration";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function App () {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Login" >
         <Stack.Screen name="Login" component={AuthForm} />
         <Stack.Screen name="Home" component={LoginScreen} />
         <Stack.Screen name="Registration" component={Registration} />
