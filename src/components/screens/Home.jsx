@@ -1,113 +1,111 @@
-import { Text, View, StyleSheet , ScrollView} from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import React from "react";
+import MainCard from "../organisms/MainCard"
 
-const Home = ({ navigation }) => {
+const listToRender = [
+  {
+    id: 0,
+    imgUrl: require("../../../assets/images/photo1.png"),
+    title: "BBN inn",
+    price: "3",
+    deliveryTime: "10-25",
+    rating: 4.9,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+  {
+    id: 1,
+    imgUrl: require("../../../assets/images/photo2.png"),
+    title: "Gourmet Burger Kitchen GBK",
+    price: "0.70",
+    deliveryTime: "10-25",
+    rating: 4.4,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+  {
+    id: 2,
+    imgUrl: require("../../../assets/images/photo3.png"),
+    title: "African Flavour",
+    price: "0.29",
+    deliveryTime: "10-25",
+    rating: 4.8,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+  {
+    id: 3,
+    imgUrl: require("../../../assets/images/photo4.png"),
+    title: "Cardinal Chips",
+    price: "0.50",
+    deliveryTime: "10-25",
+    rating: 4.5,
+    promotion: true,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+  {
+    id: 4,
+    imgUrl: require("../../../assets/images/photo5.png"),
+    title: "Scents Restaurant",
+    price: "0.60",
+    deliveryTime: "10-25",
+    rating: 4.3,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+  {
+    id: 5,
+    imgUrl: require("../../../assets/images/photo6.png"),
+    title: "Steaky treats",
+    price: "0.55",
+    deliveryTime: "10-25",
+    rating: 4.7,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+  {
+    id: 6,
+    imgUrl: require("../../../assets/images/photo7.png"),
+    title: "Foodilistica",
+    price: "0.33",
+    deliveryTime: "10-25",
+    rating: 5,
+    promQuantity: 5,
+    promPrice: 8,
+  },
+];
+
+function Home({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home screen</Text>
-    </View>
+    <ScrollView>
+      <View
+        style={{
+          flexGrow: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          paddingHorizontal: 20,
+        }}
+      >
+        {listToRender.map((item) => {
+          return (
+            <MainCard
+              imgUrl={item.imgUrl}
+              title={item.title}
+              price={item.price}
+              key={item.id} 
+              deliveryTime={item.deliveryTime}
+              rating={item.rating}
+              promotion={item.promotion}
+              promQuantity={item.promQuantity}
+              promPrice={item.promPrice}
+            />
+          );
+        })}
+      </View>
+    </ScrollView>
   );
-};
+}
 
 export default Home;
 
-
-// const listToRender = [
-//   {
-//     id: 0,
-//     firstName: "rendom name",
-//     lastName: "random lastname",
-//   },
-//   {
-//     id: 1,
-//     firstName: "rendom name",
-//     lastName: "random lastname",
-//   },
-//   {
-//     id: 2,
-//     firstName: "rendom name",
-//     lastName: "random lastname",
-//   },
-//   {
-//     id: 3,
-//     firstName: "rendom name",
-//     lastName: "random lastname",
-//   },
-//   {
-//     id: 4,
-//     firstName: "rendom name",
-//     lastName: "random lastname",
-//   },
-//   {
-//     id: 5,
-//     firstName: "rendom name",
-//     lastName: "random lastname",
-//   },
-  
-// ];
-
-// const RenderComponent = ({ firstName, lastName }) => {
-//   return (
-//     <View style={styles.container}>
-//       <Text>{firstName}</Text>
-//       <Text>{lastName}</Text>
-//     </View>
-//   );
-// };
-
-// function Home({ navigation }) {
-//   return (
-//     <ScrollView
-//       contentContainerStyle={{
-//         flexGrow: 1,
-//         alignItems: "center",
-//         justifyContent: "center",
-//         paddingHorizontal: 20,
-//       }}
-//     >
-//       {listToRender.map((item) => {
-//         return (
-//           <RenderComponent
-//             firstName={item.firstName}
-//             lastName={item.lastName}
-//             key={item.id}
-//           />
-//         );
-//       })}
-
-//       {/* <FlatList
-//         data={listToRender}
-//         renderItem={(item) => (
-//           <RenderComponent
-//             firstName={item.firstName}
-//             lastName={item.lastName}
-//           />
-//         )}
-//         keyExtractor={(item) => item.id}
-//       /> */}
-//     </ScrollView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     height: 120,
-//     width: "100%",
-//     backgroundColor: "#54924f",
-//     borderRadius:20,
-//     marginBottom: 5,
-//   },
-//   title: {
-//     marginTop: 16,
-//     paddingVertical: 8,
-//     borderWidth: 4,
-//     borderColor: "#20232a",
-//     borderRadius: 6,
-//     color: "#FFFFFF",
-//     textAlign: "center",
-//     fontSize: 30,
-//     fontWeight: "bold",
-//   },
-// });
-
-// export default Home;

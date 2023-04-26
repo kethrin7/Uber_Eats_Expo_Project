@@ -3,7 +3,7 @@ import { Text, Pressable, View } from "react-native";
 import styled from "styled-components";
 
 import Screen from "../atoms/Screen";
-import LoginScreenImage from "../images/LoginScreenImage";
+import LoginScreenImage from "../../../assets/images/LoginScreenImage"
 import Button from "../atoms/Button";
 import * as ROUTES from "../../constants/Routes";
 

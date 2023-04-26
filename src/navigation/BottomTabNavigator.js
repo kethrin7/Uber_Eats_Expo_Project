@@ -56,5 +56,4 @@ function BottomTabNavigator() {
   );
 }
 
-
 export default BottomTabNavigator;
