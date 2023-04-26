@@ -2,19 +2,15 @@ import React, { useState } from "react";
 import Button from "../atoms/Button";
 import styled from "styled-components";
 
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+const Container = styled.View``;
 
 const UserName = styled.TextInput`
   background-color: #ece6e1;
   height: 50px;
+  width: 258px;
   border-radius: 10px;
   margin-bottom: 5px;
   font-size: 22px;
-  width: 260px;
 `;
 
 const Password = styled.TextInput`
@@ -24,24 +20,12 @@ const Password = styled.TextInput`
   margin-bottom: 15px;
   margin-top: 10px;
   font-size: 22px;
-  width: 260px;
+  width: 258px;
 `;
 
 const LoginBtn = styled(Button)``;
-const RegistrationBtn = styled(Button)``;
 
-const AuthForm = ({ navigation }) => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-
-  const autorization = () => {
-    if (userName === "Qeti" && password === "Qeti123") {
-      navigation.navigate("Home");
-    } else {
-      alert("Error! ncorrect password or username");
-    }
-  };
-
+const AuthForm = ({ title, userName, setUserName, password, setPassword }) => {
   return (
     <Container>
       <UserName
@@ -51,14 +35,10 @@ const AuthForm = ({ navigation }) => {
       />
       <Password
         placeholder="Password"
-        onChange={(e) => setPassword(e.nativeEvent.text)}
+        onChange={(e) => setPassword(e)}
         value={password}
       />
-      <LoginBtn title="Login" onPress={() => autorization()} />
-      <RegistrationBtn
-        title="Registration"
-        onPress={() => navigation.navigate("Registration")}
-      />
+      <LoginBtn title={title} />
     </Container>
   );
 };
