@@ -6,9 +6,14 @@ import { Ionicons } from "@expo/vector-icons";
 const Container = styled(Pressable)`
   margin-bottom: 25px;
   position: relative;
+  display: flex;
+  margin: auto;
 `;
 
-const CardImage = styled(Image)``;
+const CardImage = styled(Image)`
+  width: 400;
+  height: 200;
+`;
 
 const TitleWrapper = styled(View)``;
 
@@ -27,6 +32,7 @@ const SubTitle = styled(Text)`
   line-height: 21px;
   text-align: center;
   color: #000000;
+  margin-bottom:15px
 `;
 
 const Rating = styled(View)`
@@ -84,21 +90,22 @@ const MainCard = ({
   promotion = false,
   promQuantity,
   promPrice,
+  distance,
+  onPress,
 }) => {
-  
   const [liked, setLiked] = useState(false);
   const [changedRating, setChangedRating] = useState(rating);
 
-const toggleLike = () => {
-  setLiked(!liked);
-  let newRating = changedRating + (liked ? -0.1 : 0.1);
-  if (newRating > 5) {
-    newRating = 5;
-  } else if (newRating < 0) {
-    newRating = 0;
-  }
-  setChangedRating(newRating);
-};
+  const toggleLike = () => {
+    setLiked(!liked);
+    let newRating = changedRating + (liked ? -0.1 : 0.1);
+    if (newRating > 5) {
+      newRating = 5;
+    } else if (newRating < 0) {
+      newRating = 0;
+    }
+    setChangedRating(newRating);
+  };
 
   const LikeBtn = ({ likeIcon }) => {
     const { color, size, focused } = likeIcon;
@@ -107,18 +114,22 @@ const toggleLike = () => {
   };
 
   return (
-    <Container>
+    <Container onPress={onPress}>
       <CardImage source={imgUrl} />
       <LikeBtnWrapper onPress={toggleLike}>
         <LikeBtn likeIcon={{ color: "white", size: 22, focused: liked }} />
       </LikeBtnWrapper>
-
       <CardBottom>
         <TitleWrapper>
           <Title>{title}</Title>
           {price && (
             <SubTitle>
               ${price} Delivery Fee | {deliveryTime} min
+            </SubTitle>
+          )}
+          {distance && (
+            <SubTitle>
+              {deliveryTime} min | {distance} mi
             </SubTitle>
           )}
         </TitleWrapper>

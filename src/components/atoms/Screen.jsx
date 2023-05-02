@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, Platform, Dimensions } from "react-native";
 import styled from "styled-components";
 
-
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
 
@@ -22,9 +21,9 @@ align-items:center;
 justify-content:center;
 `;
 
-const Screen = ({ children }) => {
+const Screen = ({ children , ...otherProps}) => {
   return (
-    <MainWrapper behavior={Platform.OS === "ios" ? "padding" : "height"}>
+    <MainWrapper behavior={Platform.OS === "ios" ? "padding" : "height"}{...otherProps}>
       <ImageBackground>
         <Container>{children}</Container>
       </ImageBackground>
