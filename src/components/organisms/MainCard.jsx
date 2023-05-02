@@ -85,6 +85,7 @@ const MainCard = ({
   promQuantity,
   promPrice,
 }) => {
+  
   const [liked, setLiked] = useState(false);
   const [changedRating, setChangedRating] = useState(rating);
 
