@@ -4,7 +4,11 @@ import styled from "styled-components";
 
 const Container = styled(Modalize)``;
 
-const BottomSheet = ({ bottomSheetRef, children }) => {
-  return <Container ref={bottomSheetRef}>{children}</Container>;
+const BottomSheet = ({ bottomSheetRef, children, modalHeight }) => {
+  return (
+    <Container ref={bottomSheetRef} modalHeight={modalHeight}>
+      {children}
+    </Container>
+  );
 };
 export default BottomSheet;

@@ -1,16 +1,18 @@
-import { Text, View, StyleSheet, ActivityIndicator } from "react-native";
+import { Text, View, Image, StyleSheet, ActivityIndicator } from "react-native";
 import { useEffect, useState } from "react";
 import React from "react";
 import MainCard from "../organisms/MainCard";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { Portal } from "react-native-portalize";
+
 import Screen from "../../components/atoms/Screen";
 import styled from "styled-components";
 import CtgrBtn from "../atoms/CtgrBtn";
 import * as ROUTES from "../../../src/constants/Routes";
-import { Portal } from "react-native-portalize";
 import BottomSheet from "../atoms/BottomSheet";
 import Button from "../atoms/Button";
 import { useRef } from "react";
+import CategoryCard from "../atoms/CategoryCard";
 
 const DeliveryList = [
   {
@@ -238,9 +240,88 @@ const DineinList = [
   },
 ];
 
-const MarginRight=styled.View`
-  margin-right:20px;
-`
+const CategoryListItems = [
+  {
+    title: "Convenience",
+    imgUrl: require("../../../assets/images/BotomSheetImages/convenience.png"),
+  },
+  {
+    title: "Alcohol",
+    imgUrl: require("../../../assets/images/BotomSheetImages/alcohol.png"),
+  },
+  {
+    title: "Pet Supplies",
+    imgUrl: require("../../../assets/images/BotomSheetImages/petsupplies.png"),
+  },
+  {
+    title: "Flowers",
+    imgUrl: require("../../../assets/images/BotomSheetImages/flowers.png"),
+  },
+  {
+    title: "Grocery",
+    imgUrl: require("../../../assets/images/BotomSheetImages/grocery.png"),
+  },
+  {
+    title: "American",
+    imgUrl: require("../../../assets/images/BotomSheetImages/american.png"),
+  },
+  {
+    title: "Speciality",
+    imgUrl: require("../../../assets/images/BotomSheetImages/speciality.png"),
+  },
+  {
+    title: "Takeout",
+    imgUrl: require("../../../assets/images/BotomSheetImages/takeout.png"),
+  },
+  {
+    title: "Asian",
+    imgUrl: require("../../../assets/images/BotomSheetImages/asian.png"),
+  },
+  {
+    title: "Ice Cream",
+    imgUrl: require("../../../assets/images/BotomSheetImages/icecream.png"),
+  },
+  {
+    title: "Halal",
+    imgUrl: require("../../../assets/images/BotomSheetImages/halal.png"),
+  },
+  {
+    title: "Retails",
+    imgUrl: require("../../../assets/images/BotomSheetImages/retails.png"),
+  },
+  {
+    title: "Carribean",
+    imgUrl: require("../../../assets/images/BotomSheetImages/carribean.png"),
+  },
+  {
+    title: "Indian",
+    imgUrl: require("../../../assets/images/BotomSheetImages/indian.png"),
+  },
+  {
+    title: "French",
+    imgUrl: require("../../../assets/images/BotomSheetImages/french.png"),
+  },
+  {
+    title: "Fast food",
+    imgUrl: require("../../../assets/images/BotomSheetImages/fastfood.png"),
+  },
+  {
+    title: "Burger",
+    imgUrl: require("../../../assets/images/BotomSheetImages/burger.png"),
+  },
+  {
+    title: "Ride",
+    imgUrl: require("../../../assets/images/BotomSheetImages/ride.png"),
+  },
+  {
+    title: "Chinese",
+    imgUrl: require("../../../assets/images/BotomSheetImages/chinese.png"),
+  },
+  {
+    title: "Desserts",
+    imgUrl: require("../../../assets/images/BotomSheetImages/desserts.png"),
+  },
+];
 const Container = styled(Screen)`
   flex-grow: 1;
   align-items: center;
@@ -279,6 +360,14 @@ const Location = styled.Text`
 
 const CategoryBtn = styled(CtgrBtn)`
   margin-right: 15px;
+`;
+
+const CtgrBtnWrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
 `;
 
 function Home({ navigation }) {
@@ -335,13 +424,30 @@ function Home({ navigation }) {
               );
             })}
           </SortTopContainer>
-          {/* <Button
-              title="Press me"
-              onPress={() => categorySheetRef.current.open}
-            /> */}
+
           <SortBottomContainer>
             <Location>Now • London Hall</Location>
           </SortBottomContainer>
+
+          <CtgrBtnWrapper>
+            <CategoryCard
+              title={CategoryListItems[0].title}
+              imgUrl={CategoryListItems[0].imgUrl}
+            />
+            <CategoryCard
+              title={CategoryListItems[1].title}
+              imgUrl={CategoryListItems[1].imgUrl}
+            />
+            <CategoryCard
+              title={CategoryListItems[2].title}
+              imgUrl={CategoryListItems[2].imgUrl}
+            />
+            <CategoryCard
+              title="More"
+              imgUrl={require("../../../assets/images/BotomSheetImages/threeDots.png")}
+              onPress={() => categorySheetRef.current.open()}
+            />
+          </CtgrBtnWrapper>
         </SortContainer>
         {data.map((item) => {
           return (
@@ -375,10 +481,12 @@ function Home({ navigation }) {
               marginTop: 20,
             }}
           >
-            <Text style={{ fontWeight: 700, fontSize: 25, marginBottom:20}}>
+            <Text style={{ fontWeight: 700, fontSize: 25, marginBottom: 20 }}>
               Today’s offers
             </Text>
-            <Text style={{ fontWeight: 400, fontSize: 18, marginBottom:20}}>See All</Text>
+            <Text style={{ fontWeight: 400, fontSize: 18, marginBottom: 20 }}>
+              See All
+            </Text>
           </View>
           <ScrollView horizontal>
             {data.map((item) => {
@@ -436,10 +544,12 @@ function Home({ navigation }) {
               marginTop: 20,
             }}
           >
-            <Text style={{ fontWeight: 700, fontSize: 25, marginBottom:20 }}>
+            <Text style={{ fontWeight: 700, fontSize: 25, marginBottom: 20 }}>
               Popular Near You
             </Text>
-            <Text style={{ fontWeight: 400, fontSize: 18, marginBottom:20 }}>See All</Text>
+            <Text style={{ fontWeight: 400, fontSize: 18, marginBottom: 20 }}>
+              See All
+            </Text>
           </View>
           <ScrollView horizontal>
             {data.map((item) => {
@@ -508,12 +618,14 @@ function Home({ navigation }) {
           );
         })}
         <Portal>
-          <BottomSheet bottomSheetRef={categorySheetRef}>
-            <Button
-              title="press me"
-              onPress={() => categorySheetRef.current.close}
-            />
-            <Text>Hello There</Text>
+          <BottomSheet bottomSheetRef={categorySheetRef} modalHeight={700}>
+            {CategoryListItems.map((item) => (
+              <CategoryCard
+                title={item.title}
+                imgUrl={item.imgUrl}
+                onPress={() => console.log(item.title)}
+              />
+            ))}
           </BottomSheet>
         </Portal>
       </InnerContainer>
