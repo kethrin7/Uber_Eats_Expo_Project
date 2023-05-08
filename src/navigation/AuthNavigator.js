@@ -12,7 +12,6 @@ import RestaurantDetails from "../components/screens/RestaurantDetails";
 import Deals from "../components/screens/Deals";
 import { Host } from "react-native-portalize";
 
-
 const Stack = createNativeStackNavigator();
 
 function SignUp({ navigation }) {

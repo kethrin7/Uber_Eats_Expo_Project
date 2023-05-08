@@ -7,8 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import MainCard from "../organisms/MainCard";
 import Screen from "../atoms/Screen";
 
-const Container = styled(Screen)`
-`;
+const Container = styled(Screen)``;
 const HeaderWrapper = styled.View`
   display: flex;
   flex-direction: row;

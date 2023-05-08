@@ -4,17 +4,16 @@ import styled from "styled-components";
 
 import * as ROUTES from "../../constants/Routes";
 import Button from "../atoms/Button";
-import LoginScreenImage from "../../../assets/images/LoginScreenImage"
+import LoginScreenImage from "../../../assets/images/LoginScreenImage";
 import Screen from "../atoms/Screen";
 
-const Container = styled(Screen)`
-`;
+const Container = styled(Screen)``;
 
 const MainCont = styled.View`
   align-items: center;
   justify-content: center;
-  flex:1;
-  display:flex;
+  flex: 1;
+  display: flex;
 `;
 const SignUpContainer = styled.View`
   display: flex;
@@ -105,4 +104,3 @@ const SignIn = ({ navigation }) => {
 };
 
 export default SignIn;
-
