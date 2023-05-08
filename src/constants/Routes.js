@@ -10,9 +10,11 @@ export const DRAWER_NAVIGATOR = "DrawerNavigator";
 
 // HOME NAVIGATION SCREENS
 export const HOME_SCREEN = "HomeScreen";
-export const ORDERS_SCREEN = "OrderScreen";
+export const BROWSE_SCREEN = "BrowseScreen";
 export const SHOP_SCREEN = "ShopScreen";
 export const SETTINGS_SCREEN = "SettingsScreen";
 export const SETTINGS_DETAILS = "SettingsDetails";
+
 export const RESTAURANT_DETAILS = "RestaurantDetails";
+export const DEALS_SCREEN = "Deals";
 

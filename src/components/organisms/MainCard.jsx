@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { View, Text, Image, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
+import styled from "styled-components";
 
 const Container = styled(Pressable)`
   margin-bottom: 25px;
@@ -11,8 +12,8 @@ const Container = styled(Pressable)`
 `;
 
 const CardImage = styled(Image)`
-  width: 400;
-  height: 200;
+  width: 400px;
+  height: 200px;
 `;
 
 const TitleWrapper = styled(View)``;
@@ -32,7 +33,7 @@ const SubTitle = styled(Text)`
   line-height: 21px;
   text-align: center;
   color: #000000;
-  margin-bottom:15px
+  margin-bottom: 15px;
 `;
 
 const Rating = styled(View)`

@@ -1,19 +1,19 @@
-import { Text, View, Image, StyleSheet, ActivityIndicator } from "react-native";
+import { Text, View, ActivityIndicator } from "react-native";
 import { useEffect, useState } from "react";
 import React from "react";
 import MainCard from "../organisms/MainCard";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { Portal } from "react-native-portalize";
+import { useRef } from "react";
 
-import Screen from "../../components/atoms/Screen";
-import styled from "styled-components";
-import CtgrBtn from "../atoms/CtgrBtn";
 import * as ROUTES from "../../../src/constants/Routes";
 import BottomSheet from "../atoms/BottomSheet";
-import Button from "../atoms/Button";
-import { useRef } from "react";
+import CtgrBtn from "../atoms/CtgrBtn";
 import CategoryCard from "../atoms/CategoryCard";
+import Screen from "../../components/atoms/Screen";
+import styled from "styled-components";
 
+// Data
 const DeliveryList = [
   {
     id: 0,
@@ -87,9 +87,10 @@ const DeliveryList = [
     promPrice: 8,
   },
 ];
+
 const PickupList = [
   {
-    id: 0,
+    id: 7,
     imgUrl: require("../../../assets/images/photo1.png"),
     title: "BBN inn",
     price: "3",
@@ -100,7 +101,7 @@ const PickupList = [
     distance: 3.4,
   },
   {
-    id: 1,
+    id: 8,
     imgUrl: require("../../../assets/images/photo2.png"),
     title: "Gourmet Burger Kitchen GBK",
     price: "0.70",
@@ -110,7 +111,7 @@ const PickupList = [
     promPrice: 8,
   },
   {
-    id: 2,
+    id: 9,
     imgUrl: require("../../../assets/images/photo3.png"),
     title: "African Flavour",
     price: "0.29",
@@ -121,7 +122,7 @@ const PickupList = [
     distance: 6.7,
   },
   {
-    id: 3,
+    id: 10,
     imgUrl: require("../../../assets/images/photo4.png"),
     title: "Cardinal Chips",
     price: "0.50",
@@ -133,7 +134,7 @@ const PickupList = [
     distance: 2.4,
   },
   {
-    id: 4,
+    id: 11,
     imgUrl: require("../../../assets/images/photo5.png"),
     title: "Scents Restaurant",
     price: "0.60",
@@ -144,7 +145,7 @@ const PickupList = [
     distance: 4.4,
   },
   {
-    id: 5,
+    id: 12,
     imgUrl: require("../../../assets/images/photo6.png"),
     title: "Steaky treats",
     price: "0.55",
@@ -155,7 +156,7 @@ const PickupList = [
     distance: 5,
   },
   {
-    id: 6,
+    id: 13,
     imgUrl: require("../../../assets/images/photo7.png"),
     title: "Foodilistica",
     price: "0.33",
@@ -166,9 +167,10 @@ const PickupList = [
     distance: 6.1,
   },
 ];
+
 const DineinList = [
   {
-    id: 0,
+    id: 14,
     imgUrl: require("../../../assets/images/photo1.png"),
     title: "BBN inn",
     price: "3",
@@ -178,7 +180,7 @@ const DineinList = [
     promPrice: 8,
   },
   {
-    id: 1,
+    id: 15,
     imgUrl: require("../../../assets/images/photo2.png"),
     title: "Gourmet Burger Kitchen GBK",
     price: "0.70",
@@ -188,7 +190,7 @@ const DineinList = [
     promPrice: 8,
   },
   {
-    id: 2,
+    id: 16,
     imgUrl: require("../../../assets/images/photo3.png"),
     title: "African Flavour",
     price: "0.29",
@@ -198,7 +200,7 @@ const DineinList = [
     promPrice: 8,
   },
   {
-    id: 3,
+    id: 17,
     imgUrl: require("../../../assets/images/photo4.png"),
     title: "Cardinal Chips",
     price: "0.50",
@@ -209,7 +211,7 @@ const DineinList = [
     promPrice: 8,
   },
   {
-    id: 4,
+    id: 18,
     imgUrl: require("../../../assets/images/photo5.png"),
     title: "Scents Restaurant",
     price: "0.60",
@@ -219,7 +221,7 @@ const DineinList = [
     promPrice: 8,
   },
   {
-    id: 5,
+    id: 19,
     imgUrl: require("../../../assets/images/photo6.png"),
     title: "Steaky treats",
     price: "0.55",
@@ -229,7 +231,7 @@ const DineinList = [
     promPrice: 8,
   },
   {
-    id: 6,
+    id: 20,
     imgUrl: require("../../../assets/images/photo7.png"),
     title: "Foodilistica",
     price: "0.33",
@@ -322,6 +324,7 @@ const CategoryListItems = [
     imgUrl: require("../../../assets/images/BotomSheetImages/desserts.png"),
   },
 ];
+
 const Container = styled(Screen)`
   flex-grow: 1;
   align-items: center;
@@ -329,12 +332,14 @@ const Container = styled(Screen)`
   padding: 20px 20px 0 20px;
   background-color: #ffffff;
 `;
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const InnerContainer = styled.ScrollView``;
 
 HeaderComponent = () => {
   return <View style={{ height: 300 }}></View>;
 };
 const SortContainer = styled.View``;
+
 const SortTopContainer = styled.View`
   display: flex;
   flex-direction: row;
@@ -374,7 +379,6 @@ function Home({ navigation }) {
   const [ctgr, setCtgr] = useState(0);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const categorySheetRef = useRef();
 
   const fetchData = () => {
@@ -401,7 +405,7 @@ function Home({ navigation }) {
     setTimeout(() => {
       fetchData();
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
@@ -443,12 +447,14 @@ function Home({ navigation }) {
               imgUrl={CategoryListItems[2].imgUrl}
             />
             <CategoryCard
+              key="more"
               title="More"
               imgUrl={require("../../../assets/images/BotomSheetImages/threeDots.png")}
               onPress={() => categorySheetRef.current.open()}
             />
           </CtgrBtnWrapper>
         </SortContainer>
+
         {data.map((item) => {
           return (
             <MainCard

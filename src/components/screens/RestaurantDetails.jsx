@@ -7,6 +7,7 @@ import RestDetailsCard from "../organisms/RestDetails";
 
 const data = {
   restaurant: {
+    id: "0",
     name: "Lanespan Pizza & Pub (Emeryville)",
     category: "Pizza",
     rating: "4",
@@ -65,18 +66,21 @@ const data = {
   ],
   OurSpecialPizza: [
     {
+      id: "7",
       title: "McMushroom Pizza",
       price: "US $21.oo",
       desc: "Some random description",
       imgUrl: require("../../../assets/images/RestDetailsImages/pizza5.png"),
     },
     {
+      id: "8",
       title: "McMushroom Pizza",
       price: "US $21.oo",
       desc: "Some random description",
       imgUrl: require("../../../assets/images/RestDetailsImages/pizza4.png"),
     },
     {
+      id: "9",
       title: "McMushroom Pizza",
       price: "US $21.oo",
       desc: "Some random description",
@@ -85,6 +89,7 @@ const data = {
   ],
   Starters: [
     {
+      id: "10",
       title: "Garlic knots",
       desc: "Priced by add-ons",
       imgUrl: require("../../../assets/images/RestDetailsImages/starters.png"),
@@ -92,6 +97,7 @@ const data = {
   ],
   Salads: [
     {
+      id: "11",
       title: "Little Ceasar Salad (Vegan)",
       price: "US $18.00",
       desc: "Little Gems, House Made Vegan Dressing, Croutons, Nutrtional Yeast, Baked Capers",
@@ -99,6 +105,7 @@ const data = {
   ],
   SaladsTwo: [
     {
+      id: "12",
       title: "Rocket Salad",
       price: "US $10.00",
       desc: "Arugula, shaved fennel, vinegar and olive oil, percorino and spanish marcona almonds",
@@ -106,6 +113,7 @@ const data = {
   ],
   HappyBirthdayPizza: [
     {
+      id: "13",
       title: "Happy birthday Pizza",
       price: "US $27.00",
       desc: "Pepperoni, mariaara, mozzarella, garlic and extra virgin olive oil",
@@ -113,30 +121,36 @@ const data = {
   ],
   Miscellaneous: [
     {
+      id: "14",
       title: "Garlic knots",
       price: "US $1.50",
     },
   ],
   Marinara: [
     {
+      id: "15",
       title: "Marinara",
       price: "US $1.00",
     },
   ],
   BalsamicGlaze: [
     {
+      id: "16",
       title: "Balsamic Glaze",
       price: "US $1.50",
     },
   ],
   AlcoholBeer: [
     {
+      id: "17",
       title: "Russian River Pliny Bottle",
       price: "US $8.00",
       desc: "Must be 21 to purchase",
     },
   ],
 };
+
+// header section
 
 const HeaderImage = styled(Image)`
   display: flex;
@@ -177,13 +191,13 @@ const RestInfo = styled.Text`
   margin-left: 5px;
 `;
 
+// arrow and group icon
 const Arrow = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 5px;
 `;
-
 const GroupView = styled.Pressable`
   width: 142px;
   height: 40px;
@@ -200,6 +214,7 @@ const GroupTitle = styled.View`
   flex-direction: row;
 `;
 
+// delivery section
 const Delivery = styled.View`
   display: flex;
   flex-direction: row;
@@ -211,8 +226,8 @@ const Delivery = styled.View`
   justify-content: center;
   gap: 30px;
   margin: 0 auto;
-  margin-bottom:25px;
-  margin-top:10px;
+  margin-bottom: 25px;
+  margin-top: 10px;
 `;
 
 const DeliveryRight = styled.View`
@@ -249,7 +264,9 @@ const SectionContainer = styled.View`
   padding: 0 15px;
 `;
 
-const Starters = styled.View``;
+// const Starters = styled.View``;
+
+// popular and promo btns
 
 const PopularView = styled.View`
   display: flex;

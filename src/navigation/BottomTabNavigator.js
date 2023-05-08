@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as ROUTES from "../constants/Routes";
 
-import Orders from "../components/screens/orders";
+import Browse from "../components/screens/Browse";
 import Shop from "../components/screens/shop";
 import Home from "../components/screens/Home";
 import SettingsNavigator from "../navigation/SettingsNavigator";
@@ -19,7 +19,7 @@ function BottomTabNavigator() {
 
           if (route.name === ROUTES.HOME_SCREEN) {
             icon = focused ? "home" : "home-outline";
-          } else if (route.name === ROUTES.ORDERS_SCREEN) {
+          } else if (route.name === ROUTES.BROWSE_SCREEN) {
             icon = focused ? "card" : "card-outline";
           } else if (route.name === ROUTES.SHOP_SCREEN) {
             icon = focused ? "fast-food" : "fast-food-outline";
@@ -38,9 +38,9 @@ function BottomTabNavigator() {
         options={{ title: "Home", headerShown: false }}
       />
       <Tab.Screen
-        name={ROUTES.ORDERS_SCREEN}
-        component={Orders}
-        options={{ title: "Orders" }}
+        name={ROUTES.BROWSE_SCREEN}
+        component={Browse}
+        options={{ title: "Browse", headerShown: false }}
       />
       <Tab.Screen
         name={ROUTES.SHOP_SCREEN}
@@ -50,7 +50,7 @@ function BottomTabNavigator() {
       <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}
         component={SettingsNavigator}
-        options={{ title: "Settings" ,headerShown:false}}
+        options={{ title: "Settings", headerShown: false }}
       />
     </Tab.Navigator>
   );
