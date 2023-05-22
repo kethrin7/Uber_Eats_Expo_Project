@@ -7,6 +7,7 @@ const Container = styled(Modalize)`
   flex-direction: row;
 `;
 const BottomText = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

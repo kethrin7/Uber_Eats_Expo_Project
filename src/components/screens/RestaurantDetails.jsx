@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import { ScrollView } from "react-native";
 import styled from "styled-components";
-
+import * as ROUTES from "../../../src/constants/Routes";
 import RestDetailsCard from "../organisms/RestDetails";
 
 const data = {
@@ -178,6 +178,7 @@ const InfoContainer = styled.View`
 `;
 
 const RestTitle = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -188,6 +189,7 @@ const RestTitle = styled.Text`
 `;
 
 const RestInfo = styled.Text`
+  font-family: UberMoveMedium;
   margin-left: 5px;
 `;
 
@@ -253,6 +255,7 @@ const DeliveryLeft = styled.View`
   align-items: center;
 `;
 const SectionTitle = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -263,8 +266,6 @@ const SectionTitle = styled.Text`
 const SectionContainer = styled.View`
   padding: 0 15px;
 `;
-
-// const Starters = styled.View``;
 
 // popular and promo btns
 
@@ -279,13 +280,12 @@ const PopularView = styled.View`
   border-radius: 25px;
 `;
 const Popular = styled.Text`
-  color: #ffffff;
-`;
-const Promo = styled.Text`
+  font-family: UberMoveMedium;
   color: #ffffff;
 `;
 const BottomView = styled.View``;
 const BottomText = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -359,13 +359,15 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Most Popular</SectionTitle>
-        {data.mostPopular.map((item) => {
+        {data.mostPopular.map((item, idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}
               imgUrl={item.imgUrl}
+              onPress={() => navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN, {...item, restaurantName:rest.name})}
             />
           );
         })}
@@ -373,9 +375,10 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Picked For You</SectionTitle>
-        {data.pickedForYou.map((item) => {
+        {data.pickedForYou.map((item, idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}
@@ -386,9 +389,10 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Starters</SectionTitle>
-        {data.Starters.map((item) => {
+        {data.Starters.map((item,idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               desc={item.desc}
               imgUrl={item.imgUrl}
@@ -402,9 +406,10 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Salads</SectionTitle>
-        {data.Salads.map((item) => {
+        {data.Salads.map((item,idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}
@@ -417,9 +422,10 @@ const RestaurantDetails = ({ route, navigation }) => {
       </SectionContainer>
 
       <SectionContainer>
-        {data.SaladsTwo.map((item) => {
+        {data.SaladsTwo.map((item,idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}
@@ -433,9 +439,10 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Our Special Pizza</SectionTitle>
-        {data.OurSpecialPizza.map((item) => {
+        {data.OurSpecialPizza.map((item,idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}
@@ -446,9 +453,10 @@ const RestaurantDetails = ({ route, navigation }) => {
       </SectionContainer>
 
       <SectionContainer>
-        {data.HappyBirthdayPizza.map((item) => {
+        {data.HappyBirthdayPizza.map((item,idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}
@@ -462,8 +470,14 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Miscellaneous</SectionTitle>
-        {data.Miscellaneous.map((item) => {
-          return <RestDetailsCard title={item.title} subTitle={item.price} />;
+        {data.Miscellaneous.map((item,idx) => {
+          return (
+            <RestDetailsCard
+              key={idx}
+              title={item.title}
+              subTitle={item.price}
+            />
+          );
         })}
         <PopularView>
           <Popular>Popular</Popular>
@@ -471,8 +485,14 @@ const RestaurantDetails = ({ route, navigation }) => {
       </SectionContainer>
 
       <SectionContainer>
-        {data.Marinara.map((item) => {
-          return <RestDetailsCard title={item.title} subTitle={item.price} />;
+        {data.Marinara.map((item ,idx) => {
+          return (
+            <RestDetailsCard
+              key={idx}
+              title={item.title}
+              subTitle={item.price}
+            />
+          );
         })}
         <PopularView>
           <Popular>Popular</Popular>
@@ -480,16 +500,23 @@ const RestaurantDetails = ({ route, navigation }) => {
       </SectionContainer>
 
       <SectionContainer>
-        {data.BalsamicGlaze.map((item) => {
-          return <RestDetailsCard title={item.title} subTitle={item.price} />;
+        {data.BalsamicGlaze.map((item,idx) => {
+          return (
+            <RestDetailsCard
+              key={idx}
+              title={item.title}
+              subTitle={item.price}
+            />
+          );
         })}
       </SectionContainer>
 
       <SectionContainer>
         <SectionTitle>Alcohol - Beer (Must be 21 to Purchase)</SectionTitle>
-        {data.AlcoholBeer.map((item) => {
+        {data.AlcoholBeer.map((item, idx) => {
           return (
             <RestDetailsCard
+              key={idx}
               title={item.title}
               subTitle={item.price}
               desc={item.desc}

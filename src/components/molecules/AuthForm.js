@@ -14,6 +14,7 @@ const UserName = styled.TextInput`
 `;
 
 const Password = styled.TextInput`
+  font-family: UberMoveMedium;
   background-color: #ece6e1;
   height: 50px;
   border-radius: 10px;

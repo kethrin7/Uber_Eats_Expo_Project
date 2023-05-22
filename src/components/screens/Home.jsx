@@ -66,26 +66,6 @@ const DeliveryList = [
     promQuantity: 5,
     promPrice: 8,
   },
-  {
-    id: 5,
-    imgUrl: require("../../../assets/images/photo6.png"),
-    title: "Steaky treats",
-    price: "0.55",
-    deliveryTime: "10-25",
-    rating: 4.7,
-    promQuantity: 5,
-    promPrice: 8,
-  },
-  {
-    id: 6,
-    imgUrl: require("../../../assets/images/photo7.png"),
-    title: "Foodilistica",
-    price: "0.33",
-    deliveryTime: "10-25",
-    rating: 5,
-    promQuantity: 5,
-    promPrice: 8,
-  },
 ];
 
 const PickupList = [
@@ -144,28 +124,6 @@ const PickupList = [
     promPrice: 8,
     distance: 4.4,
   },
-  {
-    id: 12,
-    imgUrl: require("../../../assets/images/photo6.png"),
-    title: "Steaky treats",
-    price: "0.55",
-    deliveryTime: "10-25",
-    rating: 4.7,
-    promQuantity: 5,
-    promPrice: 8,
-    distance: 5,
-  },
-  {
-    id: 13,
-    imgUrl: require("../../../assets/images/photo7.png"),
-    title: "Foodilistica",
-    price: "0.33",
-    deliveryTime: "10-25",
-    rating: 5,
-    promQuantity: 5,
-    promPrice: 8,
-    distance: 6.1,
-  },
 ];
 
 const DineinList = [
@@ -220,30 +178,11 @@ const DineinList = [
     promQuantity: 5,
     promPrice: 8,
   },
-  {
-    id: 19,
-    imgUrl: require("../../../assets/images/photo6.png"),
-    title: "Steaky treats",
-    price: "0.55",
-    deliveryTime: "10-25",
-    rating: 4.7,
-    promQuantity: 5,
-    promPrice: 8,
-  },
-  {
-    id: 20,
-    imgUrl: require("../../../assets/images/photo7.png"),
-    title: "Foodilistica",
-    price: "0.33",
-    deliveryTime: "10-25",
-    rating: 5,
-    promQuantity: 5,
-    promPrice: 8,
-  },
 ];
 
 const CategoryListItems = [
   {
+    id:44,
     title: "Convenience",
     imgUrl: require("../../../assets/images/BotomSheetImages/convenience.png"),
   },
@@ -332,11 +271,12 @@ const Container = styled(Screen)`
   padding: 20px 20px 0 20px;
   background-color: #ffffff;
 `;
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-const InnerContainer = styled.ScrollView``;
+
+const InnerContainer = styled.ScrollView`
+`;
 
 HeaderComponent = () => {
-  return <View style={{ height: 300 }}></View>;
+  return <View style={{ height:300 }}></View>;
 };
 const SortContainer = styled.View``;
 
@@ -355,6 +295,7 @@ const SortBottomContainer = styled.View`
 `;
 
 const Location = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -410,20 +351,20 @@ function Home({ navigation }) {
 
   return (
     <Container>
-      {loading && <ActivityIndicator size="large" color="green" />}
+      {loading && <ActivityIndicator size="large" color="green"/>}
       <InnerContainer
         showsVerticalScrollIndicator={false}
-        style={{ display: loading ? "none" : "flex" }}
+        style={{ display: loading ? "none" : "flex"}}
       >
         <SortContainer>
           <SortTopContainer>
-            {btns.map((item) => {
+            {btns.map((item,idx) => {
               return (
                 <CategoryBtn
-                  key={item.value}
+                  key={idx}
                   title={item.title}
                   onPress={() => handlePress(item.value)}
-                  light={item.value === ctgr ? true : false}
+                  light={item.value === ctgr ? false : true}
                 />
               );
             })}
@@ -455,10 +396,10 @@ function Home({ navigation }) {
           </CtgrBtnWrapper>
         </SortContainer>
 
-        {data.map((item) => {
+        {data.map((item, idx)=> {
           return (
             <MainCard
-              key={item.id}
+              key={idx}
               imgUrl={item.imgUrl}
               title={item.title}
               price={ctgr === 0 ? item.price : ""}
@@ -495,10 +436,10 @@ function Home({ navigation }) {
             </Text>
           </View>
           <ScrollView horizontal>
-            {data.map((item) => {
+            {data.map((item,idx) => {
               return (
                 <MainCard
-                  key={item.id}
+                  key={idx}
                   imgUrl={item.imgUrl}
                   title={item.title}
                   price={ctgr === 0 ? item.price : ""}
@@ -518,10 +459,10 @@ function Home({ navigation }) {
             })}
           </ScrollView>
         </View>
-        {data.map((item) => {
+        {data.map((item,idx) => {
           return (
             <MainCard
-              key={item.id}
+              key={idx}
               imgUrl={item.imgUrl}
               title={item.title}
               price={ctgr === 0 ? item.price : ""}
@@ -558,10 +499,10 @@ function Home({ navigation }) {
             </Text>
           </View>
           <ScrollView horizontal>
-            {data.map((item) => {
+            {data.map((item,idx) => {
               return (
                 <MainCard
-                  key={item.id}
+                  key={idx}
                   imgUrl={item.imgUrl}
                   title={item.title}
                   price={ctgr === 0 ? item.price : ""}
@@ -579,10 +520,10 @@ function Home({ navigation }) {
                 />
               );
             })}
-            {data.map((item) => {
+            {data.map((item,idx) => {
               return (
                 <MainCard
-                  key={item.id}
+                  key={idx}
                   imgUrl={item.imgUrl}
                   title={item.title}
                   price={ctgr === 0 ? item.price : ""}
@@ -602,27 +543,6 @@ function Home({ navigation }) {
             })}
           </ScrollView>
         </View>
-        {data.map((item) => {
-          return (
-            <MainCard
-              key={item.id}
-              imgUrl={item.imgUrl}
-              title={item.title}
-              price={ctgr === 0 ? item.price : ""}
-              distance={ctgr === 1 ? item.distance : ""}
-              deliveryTime={item.deliveryTime}
-              rating={item.rating}
-              promotion={ctgr === 0 ? item.promotion : ""}
-              promPrice={item.promPrice}
-              promQuantity={item.promQuantity}
-              onPress={() =>
-                navigation.navigate(ROUTES.RESTAURANT_DETAILS, {
-                  id: item.id,
-                })
-              }
-            />
-          );
-        })}
         <Portal>
           <BottomSheet bottomSheetRef={categorySheetRef} modalHeight={700}>
             {CategoryListItems.map((item) => (

@@ -25,6 +25,7 @@ const LabelContainer = styled.Pressable`
 `;
 
 const IconText = styled.Text`
+  font-family: UberMoveBold;
   margin-left: 5px;
   font-style: normal;
   font-weight: 400;
@@ -48,9 +49,9 @@ const Cont = styled.View`
 `;
 const Deals = ({ navigation, route }) => {
   console.log(route.params.page);
-  const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
+const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
 
-  const HeaderContainer = ({ onPress, borderBot }) => {
+  const HeaderContainer = ({ onPress, borderBottom }) => {
     return (
       <HeaderWrapper>
         <Cont>
@@ -81,7 +82,7 @@ const Deals = ({ navigation, route }) => {
   const DeliveryList = [
     {
       id: 0,
-      imgUrl: require("../../../assets/images"),
+      imgUrl: require("../../../assets/images/DealScreenImages/reward1.png"),
       title: "BBN inn",
       price: "3",
       deliveryTime: "10-25",
@@ -91,17 +92,18 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 1,
-      imgUrl: require("../../../assets/images/photo2.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers2.png"),
       title: "Gourmet Burger Kitchen GBK",
       price: "0.70",
       deliveryTime: "10-25",
       rating: 4.4,
+      promotion: true,
       promQuantity: 5,
       promPrice: 8,
     },
     {
       id: 2,
-      imgUrl: require("../../../assets/images/photo3.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers3.png"),
       title: "African Flavour",
       price: "0.29",
       deliveryTime: "10-25",
@@ -111,7 +113,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 3,
-      imgUrl: require("../../../assets/images/photo4.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers4.png"),
       title: "Cardinal Chips",
       price: "0.50",
       deliveryTime: "10-25",
@@ -122,7 +124,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 4,
-      imgUrl: require("../../../assets/images/photo5.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers5.png"),
       title: "Scents Restaurant",
       price: "0.60",
       deliveryTime: "10-25",
@@ -132,18 +134,18 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 5,
-      imgUrl: require("../../../assets/images/photo6.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers6.png"),
       title: "Steaky treats",
       price: "0.55",
       deliveryTime: "10-25",
       rating: 4.7,
+      promotion: true,
       promQuantity: 5,
       promPrice: 8,
     },
     {
       id: 6,
-      imgUrl: require("../../../assets/images/photo7.png"),
-      title: "Foodilistica",
+      imgUrl: require("../../../assets/images/DealScreenImages/offers1.png"),
       price: "0.33",
       deliveryTime: "10-25",
       rating: 5,
@@ -155,7 +157,7 @@ const Deals = ({ navigation, route }) => {
   const PickupList = [
     {
       id: 7,
-      imgUrl: require("../../../assets/images/photo1.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers1.png"),
       title: "BBN inn",
       price: "3",
       deliveryTime: "10-25",
@@ -166,7 +168,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 8,
-      imgUrl: require("../../../assets/images/photo2.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/reward2.png"),
       title: "Gourmet Burger Kitchen GBK",
       price: "0.70",
       deliveryTime: "10-25",
@@ -176,7 +178,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 9,
-      imgUrl: require("../../../assets/images/photo3.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/reward3.png"),
       title: "African Flavour",
       price: "0.29",
       deliveryTime: "10-25",
@@ -187,7 +189,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 10,
-      imgUrl: require("../../../assets/images/photo4.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/reward4.png"),
       title: "Cardinal Chips",
       price: "0.50",
       deliveryTime: "10-25",
@@ -199,7 +201,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 11,
-      imgUrl: require("../../../assets/images/photo5.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/reward5.png"),
       title: "Scents Restaurant",
       price: "0.60",
       deliveryTime: "10-25",
@@ -210,7 +212,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 12,
-      imgUrl: require("../../../assets/images/photo6.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers2.png"),
       title: "Steaky treats",
       price: "0.55",
       deliveryTime: "10-25",
@@ -221,7 +223,7 @@ const Deals = ({ navigation, route }) => {
     },
     {
       id: 13,
-      imgUrl: require("../../../assets/images/photo7.png"),
+      imgUrl: require("../../../assets/images/DealScreenImages/offers4.png"),
       title: "Foodilistica",
       price: "0.33",
       deliveryTime: "10-25",
@@ -252,10 +254,10 @@ const Deals = ({ navigation, route }) => {
             imgUrl={item.imgUrl}
             title={item.title}
             price={type === 0 ? item.price : ""}
-            distance={type === 1 ? item.distance : ""}
+            distance={type === 0 ? item.distance : ""}
             deliveryTime={item.deliveryTime}
             rating={item.rating}
-            promotion={type === 0 ? item.promotion : ""}
+            promotion={type === 1 ? item.promotion : ""}
             promPrice={item.promPrice}
             promQuantity={item.promQuantity}
           />

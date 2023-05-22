@@ -17,4 +17,5 @@ export const SETTINGS_DETAILS = "SettingsDetails";
 
 export const RESTAURANT_DETAILS = "RestaurantDetails";
 export const DEALS_SCREEN = "Deals";
+export const ORDERS_DETAILS_SCREEN="OrdersDetails"
 

@@ -21,6 +21,7 @@ const SignUpContainer = styled.View`
 `;
 
 const SignUpButton = styled.Text`
+  font-family: UberMoveMedium;
   color: blue;
   margin-left: 5px;
 `;
@@ -31,6 +32,7 @@ const LoginImage = styled(LoginScreenImage)`
 `;
 
 const UserName = styled.TextInput`
+  font-family: UberMoveMedium;
   background-color: #ece6e1;
   height: 50px;
   width: 258px;
@@ -40,6 +42,7 @@ const UserName = styled.TextInput`
 `;
 
 const Password = styled.TextInput`
+  font-family: UberMoveMedium;
   background-color: #ece6e1;
   height: 50px;
   border-radius: 10px;

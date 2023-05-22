@@ -11,7 +11,13 @@ import Search from "../atoms/TextInput";
 const Container = styled(Screen)`
   background-color: #ffffff;
 `;
-
+const SearchView = styled.View`
+  padding: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
 const InnerContainer = styled.View`
   padding: 22px;
   display: flex;
@@ -21,6 +27,7 @@ const InnerContainer = styled.View`
 `;
 
 const Title = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -141,7 +148,9 @@ const browseList = [
   return (
     <Container>
       <ScrollView>
-        <Search/>
+        <SearchView>
+          <Search />
+        </SearchView>
         <Title style={{ marginTop: 15, marginLeft: 22 }}>Top Categories</Title>
         <InnerContainer>
           {offerList.map((item) => {
@@ -155,7 +164,7 @@ const browseList = [
             );
           })}
         </InnerContainer>
-        <Title style={{marginLeft: 22 }}>All Categories</Title>
+        <Title style={{ marginLeft: 22 }}>All Categories</Title>
         <InnerContainer>
           {browseList.map((item) => {
             return (

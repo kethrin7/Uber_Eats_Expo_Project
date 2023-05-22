@@ -1,11 +1,35 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import "react-native-gesture-handler";
-import AuthNavigator from "./src/navigation/AuthNavigator"
+import React, { useEffect } from "react";
+import { useFonts } from "expo-font";
+import UberMoveBold from "./assets/fonts/UberMoveBold.otf";
+import UberMoveMedium from "./assets/fonts/UberMoveMedium.otf";
+import AuthNavigator from "./src/navigation/AuthNavigator";
+import SplashScreen from "react-native-splash-screen";
+import { PaperProvider } from "react-native-paper";
 
-const Stack = createNativeStackNavigator();
+export default function App() {
+  useEffect(() => {
+    const loadFonts = async () => {
+      await SplashScreen.preventAutoHideAsync(); 
+      await Promise.all(
+        [UberMoveBold, UberMoveMedium].map((font) => font.loadAsync(font))
+      );
+      SplashScreen.hideAsync();
+    };
+    loadFonts();
+  }, []);
 
-export default function App () {
-  return <AuthNavigator/>
+  const [fontsLoaded] = useFonts({
+    UberMoveBold,
+    UberMoveMedium,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    <PaperProvider>
+      <AuthNavigator />
+    </PaperProvider>
+  );
 }

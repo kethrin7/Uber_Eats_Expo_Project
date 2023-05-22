@@ -45,7 +45,7 @@ function BottomTabNavigator() {
       <Tab.Screen
         name={ROUTES.SHOP_SCREEN}
         component={Shop}
-        options={{ title: "Shop" }}
+        options={{ title: "Shop", headerShown: false}}
       />
       <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}

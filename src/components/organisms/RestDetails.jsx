@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 
 import styled from "styled-components";
 
-const Container = styled.View`
+const Container = styled.Pressable`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -24,12 +24,14 @@ const LeftContainer = styled.View`
 `;
 
 const Title = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   color: #000000;
 `;
 const SubTitle = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -37,6 +39,7 @@ const SubTitle = styled.Text`
 `;
 
 const Desc = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -47,9 +50,10 @@ const RestDetailsCard = ({
   subTitle = "Subtitle",
   desc = "Desc",
   imgUrl,
+  onPress
 }) => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <RightContainer imgUrl={imgUrl}>
         {title && <Title>{title}</Title>}
         {subTitle && <SubTitle>{subTitle}</SubTitle>}

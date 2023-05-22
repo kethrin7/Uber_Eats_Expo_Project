@@ -1,14 +1,13 @@
 import React from "react";
-import { View, Text, Platform, Dimensions } from "react-native";
+import { View, Text, Platform, Dimensions, StatusBar } from "react-native";
 import styled from "styled-components";
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
 
-const MainWrapper = styled.KeyboardAvoidingView`
-  display: flex;
-  height: 100%;
-`;
+const statusBarHeight= StatusBar.curentHeight;
+
+const MainWrapper = styled.KeyboardAvoidingView``;
 
 const ImageBackground = styled.ImageBackground`
   height: ${windowHeight}px;
@@ -16,14 +15,20 @@ const ImageBackground = styled.ImageBackground`
 `;
 
 const Container = styled.SafeAreaView`
-flex:1;
+  flex: 1;
+  background-color: #ffffff;
+  padding: 0 22px;
+  padding-top: ${Platform.OS === "ios" ? "0" : statusBarHeight}px;
 `;
 
-const Screen = ({ children , ...otherProps}) => {
+const Screen = ({ children,style, ...otherProps }) => {
   return (
-    <MainWrapper behavior={Platform.OS === "ios" ? "padding" : "height"}{...otherProps}>
+    <MainWrapper
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      {...otherProps}
+    >
       <ImageBackground>
-        <Container>{children}</Container>
+        <Container style={style} >{children}</Container>
       </ImageBackground>
     </MainWrapper>
   );

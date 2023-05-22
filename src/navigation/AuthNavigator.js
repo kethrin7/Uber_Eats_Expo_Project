@@ -10,6 +10,7 @@ import SettingsDetails from "../components/screens/SettingsDetails";
 import DrawerNavigator from "./DrawerNavigator";
 import RestaurantDetails from "../components/screens/RestaurantDetails";
 import Deals from "../components/screens/Deals";
+import OrdersDetails from "../components/screens/OrdersDetail";
 import { Host } from "react-native-portalize";
 
 const Stack = createNativeStackNavigator();
@@ -56,7 +57,12 @@ const AuthNavigator = () => {
           <Stack.Screen
             name={ROUTES.RESTAURANT_DETAILS}
             component={RestaurantDetails}
-            options={{ title: "Restaurant", headerShown: false }}
+            options={{ title: "Restaurant", headerShown: true }}
+          />
+          <Stack.Screen
+            name={ROUTES.ORDERS_DETAILS_SCREEN}
+            component={OrdersDetails}
+            options={{ title: "Orders", headerShown: true, }}
           />
           <Stack.Screen
             name={ROUTES.DEALS_SCREEN}

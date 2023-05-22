@@ -14,6 +14,7 @@ const Container = styled.Pressable`
 
 
 const Title = styled.Text`
+  font-family: UberMoveMedium;
   color: #ffffff;
   font-size: 16px;
 `;

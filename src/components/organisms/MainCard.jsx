@@ -27,6 +27,7 @@ const Title = styled(Text)`
 `;
 
 const SubTitle = styled(Text)`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -40,13 +41,15 @@ const Rating = styled(View)`
   width: 28px;
   height: 28px;
   background-color: #eeeeee;
-  border-radius: 50%;
+  border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const RatingText = styled(Text)``;
+const RatingText = styled(Text)`
+  font-family: UberMoveMedium;
+`;
 
 const CardBottom = styled(View)`
   margin-top: 5px;
@@ -69,6 +72,7 @@ const Promotion = styled(View)`
 `;
 
 const PromotionText = styled(Text)`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

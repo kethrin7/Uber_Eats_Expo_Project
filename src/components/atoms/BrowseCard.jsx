@@ -13,6 +13,7 @@ const CardImage = styled.Image`
 `;
 
 const Title = styled.Text`
+  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
