@@ -1,8 +1,9 @@
 import { View } from "react-native";
 import React from "react";
 import styled from "styled-components";
-import Text from "../atoms/Text";
 import { AntDesign } from "@expo/vector-icons";
+
+import Text from "../atoms/Text";
 
 const Container = styled.View`
   padding: 14px 23px 14px 18px;

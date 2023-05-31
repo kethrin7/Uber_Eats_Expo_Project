@@ -1,6 +1,7 @@
 import { Text, View, Image } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Container = styled.Pressable`
   width: 100%;
@@ -22,18 +23,11 @@ const InfoContainer = styled.View`
 `;
 const Icon = styled.Image``;
 const Title = styled.Text`
-  font-style: normal;
-  font-weight: 500;
   font-size: 16px;
-  line-height: 20px;
   color: #000000;
 `;
 const SubTitle = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
   color: #6b6b6b;
 `;
 const BorderBottom = styled.View`
@@ -45,20 +39,20 @@ const BorderBottom = styled.View`
 `;
 const ShopCard = ({ onPress, image, title, subtitle, desc }) => {
   return (
-    <Container onPress={onPress}>
-      <InfoContainer>
-        <CardImage source={image} />
-        <TitleView>
-          <Title>{title}</Title>
-          <SubTitle>{subtitle}</SubTitle>
-          <SubTitle>{desc}</SubTitle>
-          <BorderBottom />
-        </TitleView>
-      </InfoContainer>
-      <Icon
-        source={require("../../../assets/images/ShopScreenImages/arrowright.png")}
-      />
-    </Container>
+      <Container onPress={onPress}>
+        <InfoContainer>
+          <CardImage source={image} />
+          <TitleView>
+            <Title>{title}</Title>
+            <SubTitle>{subtitle}</SubTitle>
+            <SubTitle>{desc}</SubTitle>
+            <BorderBottom />
+          </TitleView>
+        </InfoContainer>
+        <Icon
+          source={require("../../../assets/images/ShopScreenImages/arrowright.png")}
+        />
+      </Container>
   );
 };
 

@@ -19,10 +19,7 @@ const CardImage = styled(Image)`
 const TitleWrapper = styled(View)``;
 
 const Title = styled(Text)`
-  font-style: normal;
-  font-weight: 500;
   font-size: 16px;
-  line-height: 21px;
   color: #000000;
 `;
 
@@ -48,7 +45,6 @@ const Rating = styled(View)`
 `;
 
 const RatingText = styled(Text)`
-  font-family: UberMoveMedium;
 `;
 
 const CardBottom = styled(View)`
@@ -72,11 +68,7 @@ const Promotion = styled(View)`
 `;
 
 const PromotionText = styled(Text)`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
   color: #ffffff;
 `;
 

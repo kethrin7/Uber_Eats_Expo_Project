@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import Text from "./Text";
+
 const Container = styled.Pressable`
   width: 258px;
   height: 45px;
@@ -12,13 +14,10 @@ const Container = styled.Pressable`
   display: flex;
 `;
 
-
-const Title = styled.Text`
-  font-family: UberMoveMedium;
+const Title = styled(Text)`
   color: #ffffff;
   font-size: 16px;
 `;
-
 
 const Button = ({ title, onPress }) => {
   return (

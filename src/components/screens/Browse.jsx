@@ -2,11 +2,13 @@ import { Text, View,  } from "react-native";
 import React from "react";
 import styled from "styled-components";
 
+
 import * as ROUTES from "../../../src/constants/Routes";
+import { ScrollView } from "react-native-gesture-handler";
 import BrowseCard from "../atoms/BrowseCard";
 import Screen from "../atoms/Screen";
-import { ScrollView } from "react-native-gesture-handler";
 import Search from "../atoms/TextInput";
+
 
 const Container = styled(Screen)`
   background-color: #ffffff;

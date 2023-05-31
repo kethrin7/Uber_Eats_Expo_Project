@@ -1,11 +1,13 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import styled from "styled-components";
-import Button from "../atoms/Button";
+import { ScrollView } from "react-native-gesture-handler";
+
 import * as ROUTES from "../../constants/Routes";
 import Screen from "../atoms/Screen";
 import SettingCard from "../organisms/SettingCard";
-import { ScrollView } from "react-native-gesture-handler";
+import Button from "../atoms/Button";
+import Text from "../atoms/Text";
 
 const Container = styled(Screen)`
   flex: 1;
@@ -25,14 +27,8 @@ const UserImage = styled.Image`
   margin-left: 15px;
 `;
 
-const UserName = styled.Text`
-  font-family: UberMoveBold;
+const UserName = styled(Text)`
   margin-left: 22px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
 `;
 
 const Cards = [

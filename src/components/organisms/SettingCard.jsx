@@ -14,21 +14,14 @@ const TitleContainer = styled.View`
 `;
 
 const SubTitle = styled.Text`
-  font-family: UberMoveMedium;
   margin-left: 25px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 20px;
   color: #34a853;
 `;
 
 const Title = styled.Text`
-  font-family: UberMoveBold;
   margin-left: 25px;
-  font-style: normal;
-  font-weight: 500;
   font-size: 14px;
-  line-height: 20px;
 `;
 const SettingCard = ({ onPress, image, title, subTitle }) => {
   return (

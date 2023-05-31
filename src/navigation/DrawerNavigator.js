@@ -1,12 +1,11 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import * as ROUTES from "../constants/Routes";
 import Browse from "../components/screens/Browse";
 import Shop from "../components/screens/shop";
-import Home from "../components/screens/Home";
 import Settings from "../components/screens/Settings";
 import BottomTabNavigator from "./BottomTabNavigator";
 
-import * as ROUTES from "../constants/Routes";
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {

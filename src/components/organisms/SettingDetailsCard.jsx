@@ -28,7 +28,6 @@ const InfoMainTitle = styled.Text`
 `;
 const InfoIcon = styled.Image``;
 const InfoTitle = styled.Text`
-  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -36,7 +35,6 @@ const InfoTitle = styled.Text`
   color: #000000;
 `;
 const InfoSubTitle = styled.Text`
-  font-family: UberMoveMedium;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -49,13 +47,10 @@ const OtherInfoContainer = styled.View`
 `;
 
 const SignOut = styled.Text`
-  font-family: UberMoveMedium;
   margin: 24px 0 0 22px;
-  font-style: normal;
-  font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
   color: #1d5c2e;
+  font-family: UberMoveBold;
 `;
 
 const Separator = styled.View`

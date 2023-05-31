@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import * as ROUTES from "../constants/Routes";
-
-import Browse from "../components/screens/Browse";
-import Shop from "../components/screens/shop";
-import Home from "../components/screens/Home";
-import SettingsNavigator from "../navigation/SettingsNavigator";
 import { Ionicons } from "@expo/vector-icons";
+
+import * as ROUTES from "../constants/Routes";
+import Browse from "../components/screens/Browse";
+import Home from "../components/screens/Home";
+import Shop from "../components/screens/shop";
+import SettingsNavigator from "../navigation/SettingsNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,7 +45,7 @@ function BottomTabNavigator() {
       <Tab.Screen
         name={ROUTES.SHOP_SCREEN}
         component={Shop}
-        options={{ title: "Shop", headerShown: false}}
+        options={{ title: "Shop", headerShown: false }}
       />
       <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}

@@ -2,23 +2,21 @@ import React from "react";
 import { Modalize } from "react-native-modalize";
 import styled from "styled-components";
 
+import Text from "./Text";
+
 const Container = styled(Modalize)`
   display: flex;
   flex-direction: row;
 `;
-const BottomText = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 28px;
+const BottomText = styled(Text)`
   text-align: center;
+  font-size:20px;
   margin: 25px 0 30px 0;
 `;
-const BottomSheet = ({ bottomSheetRef, children, modalHeight }) => {
+const BottomSheet = ({ bottomSheetRef, children, modalHeight,title }) => {
   return (
     <Container ref={bottomSheetRef} modalHeight={modalHeight}>
-      <BottomText>All categories</BottomText>
+      <BottomText>{title}</BottomText>
       <Row>
         <Column>{children[0]}</Column>
         <Column>{children[1]}</Column>

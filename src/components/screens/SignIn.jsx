@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Text, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import styled from "styled-components";
 
 import * as ROUTES from "../../constants/Routes";
 import Button from "../atoms/Button";
 import LoginScreenImage from "../../../assets/images/LoginScreenImage";
 import Screen from "../atoms/Screen";
+import Text from "../atoms/Text";
 
 const Container = styled(Screen)``;
 
@@ -20,8 +21,7 @@ const SignUpContainer = styled.View`
   flex-direction: row;
 `;
 
-const SignUpButton = styled.Text`
-  font-family: UberMoveMedium;
+const SignUpButton = styled(Text)`
   color: blue;
   margin-left: 5px;
 `;

@@ -1,154 +1,167 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { ScrollView } from "react-native";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+
 import * as ROUTES from "../../../src/constants/Routes";
 import RestDetailsCard from "../organisms/RestDetails";
+import RestDetailsPopular from "../organisms/RestDetailsPopular";
+import Text from "../atoms/Text";
+import GrayCtgrBtn from "../atoms/GrayCtgrBtn";
 
 const data = {
   restaurant: {
-    id: "0",
-    name: "Lanespan Pizza & Pub (Emeryville)",
-    category: "Pizza",
-    rating: "4",
+    id: 0,
+    name: "Lanespan Pizza & Pub (Emerville)",
+    rating: 4.6,
     ratingQuantity: 300,
-    workingHours: "Open untill 3:00 AM",
+    category: "Pizza",
+    workingHours: "open until 3:00 am ",
+    deliveryTime: "25-35",
+    deliveryDistance: "1,7",
+    pickupTime: "5-15",
+    pickupDistance: "1,7",
   },
+
+  bottomRestName: {
+    id: 1,
+    restTitle: "Alcohol - Beer (Must be 21 to Purchase)",
+    title: "Russian River Plinty Bottle",
+    price: "21.00",
+    desc: "Must be 21 to purchase ",
+  },
+
   mostPopular: [
     {
-      id: "1",
-      title: "McMushroom Pizza",
-      price: "US $21.00",
-      desc: "Garlic, olive oil base, mozarella,cremini mushrooms, ricotta, thyme, white truffle oil. Addarugula for an extra charge",
-      imgUrl: require("../../../assets/images/RestDetailsImages/pizza1.png"),
+      id: 2,
+      title: "McMshroom pizza",
+      price: "21.00",
+      desc: "olive oil base, mozarella,cremini mushrooms, ricotta, thyme, white truffle oil.",
+      img: require("../../../assets/images/RestDetailsImages/pizza1.png"),
     },
     {
-      id: "2",
+      id: 3,
       title: "Broken Mush Pizza",
-      price: "US $18.00",
+      price: "21.00",
       desc: "Hot peppers, mozzarella, spicy marinara, spicy sporessata and picante infused olive oil",
-      imgUrl: require("../../../assets/images/RestDetailsImages/pizza2.png"),
+      img: require("../../../assets/images/RestDetailsImages/pizza2.png"),
     },
     {
-      id: "3",
+      id: 4,
       title: "Margarita Pizza",
-      price: "US $20.00",
+      price: "21.00",
+      desc: "mozarella,cremini mushrooms, ricotta, thyme, white truffle oil. ",
+      img: require("../../../assets/images/RestDetailsImages/pizza3.png"),
+    },
+    {
+      id: 5,
+      title: "McMshroom pizza",
+      price: "21.00",
       desc: "Whole milk mozarrela pearls,mozarrela, arinara, shavedParmesan, fresh basil and extravirgin olive oil",
-      imgUrl: require("../../../assets/images/RestDetailsImages/pizza3.png"),
+      promo: true,
     },
   ],
-
   pickedForYou: [
     {
-      id: "4",
+      id: 6,
       title: "McMushroom Pizza",
-      price: "US $21.00",
-      desc: "Garlic, olive oil base, mozarella,cremini mushrooms, ricotta, thyme, white truffle oil. Addarugula for an extra charge",
+      price: "21.00",
+      desc: " olive oil base, mozarella,cremini mushrooms, ricotta, thyme, white truffle oil.",
     },
     {
-      id: "5",
+      id: 7,
       title: "Broken Mush Pizza",
-      price: "US $18.00",
+      price: "18.00",
       desc: "Hot peppers, mozzarella, spicy marinara, spicy sporessata and picante infused olive oil",
     },
     {
-      id: "6",
+      id: 8,
       title: "Margarita Pizza",
-      price: "US $20.00",
+      price: "20.00",
       desc: "Whole milk mozarrela pearls,mozarrela, arinara, shavedParmesan, fresh basil and extravirgin olive oil",
     },
     {
-      id: "7",
+      id: 9,
       title: "Rus River Pliny Bottle ",
-      price: "US $10.00",
+      price: "10.00",
       desc: "Must be 21 to purchase",
+      itemQuantity: 12,
     },
   ],
-  OurSpecialPizza: [
+  ourSpecialPizza: [
     {
-      id: "7",
-      title: "McMushroom Pizza",
-      price: "US $21.oo",
-      desc: "Some random description",
-      imgUrl: require("../../../assets/images/RestDetailsImages/pizza5.png"),
+      id: 17,
+      title: "McMshroom pizza",
+      price: "21.00",
+      desc: "Hot peppers, mozzarella, spicy marinara, spicy sporessata and picante infused olive oil",
+      img: require("../../../assets/images/RestDetailsImages/pizza4.png"),
     },
     {
-      id: "8",
-      title: "McMushroom Pizza",
-      price: "US $21.oo",
-      desc: "Some random description",
-      imgUrl: require("../../../assets/images/RestDetailsImages/pizza4.png"),
+      id: 18,
+      title: "McMshroom pizza",
+      price: "21.00",
+      desc: "Whole milk mozarrela pearls,mozarrela, arinara, shavedParmesan, fresh basil and extravirgin olive oil",
+      img: require("../../../assets/images/RestDetailsImages/pizza5.png"),
     },
     {
-      id: "9",
-      title: "McMushroom Pizza",
-      price: "US $21.oo",
-      desc: "Some random description",
-      imgUrl: require("../../../assets/images/RestDetailsImages/pizza6.png"),
+      id: 19,
+      title: "McMshroom pizza",
+      price: "21.00",
+      desc: "mozzarella, spicy marinara, spicy sporessata and picante infused olive oil",
+      img: require("../../../assets/images/RestDetailsImages/pizza6.png"),
+    },
+    {
+      id: 20,
+      title: "Happy bithday Pizza",
+      price: "21.00",
+      desc: "spicy marinara, spicy sporessata and picante infused olive oil,mozzarella",
+      popular: true,
     },
   ],
-  Starters: [
+  starters: {
+    id: 14,
+    title: "Garlic knots",
+    desc: "Priced by add-ons",
+    popular: true,
+    img: require("../../../assets/images/RestDetailsImages/starters.png"),
+  },
+  salads: [
     {
-      id: "10",
-      title: "Garlic knots",
-      desc: "Priced by add-ons",
-      imgUrl: require("../../../assets/images/RestDetailsImages/starters.png"),
+      id: 15,
+      title: "Little Cesar Salad",
+      price: "18.00",
+      desc: " olive oil base, mozarella,cremini mushrooms, ricotta, thyme, white truffle oil.",
+      popular: true,
     },
-  ],
-  Salads: [
     {
-      id: "11",
-      title: "Little Ceasar Salad (Vegan)",
-      price: "US $18.00",
+      id: 16,
+      title: "Rocket Salad",
+      price: "10.00",
       desc: "Little Gems, House Made Vegan Dressing, Croutons, Nutrtional Yeast, Baked Capers",
     },
   ],
-  SaladsTwo: [
+  mischelaneous: [
     {
-      id: "12",
+      id: 21,
+      title: "Little Cesar Salad",
+      price: "18.00",
+      popular: true,
+    },
+    {
+      id: 22,
       title: "Rocket Salad",
-      price: "US $10.00",
-      desc: "Arugula, shaved fennel, vinegar and olive oil, percorino and spanish marcona almonds",
+      price: "10.00",
+      popular: true,
     },
-  ],
-  HappyBirthdayPizza: [
     {
-      id: "13",
-      title: "Happy birthday Pizza",
-      price: "US $27.00",
-      desc: "Pepperoni, mariaara, mozzarella, garlic and extra virgin olive oil",
-    },
-  ],
-  Miscellaneous: [
-    {
-      id: "14",
-      title: "Garlic knots",
-      price: "US $1.50",
-    },
-  ],
-  Marinara: [
-    {
-      id: "15",
-      title: "Marinara",
-      price: "US $1.00",
-    },
-  ],
-  BalsamicGlaze: [
-    {
-      id: "16",
-      title: "Balsamic Glaze",
-      price: "US $1.50",
-    },
-  ],
-  AlcoholBeer: [
-    {
-      id: "17",
-      title: "Russian River Pliny Bottle",
-      price: "US $8.00",
-      desc: "Must be 21 to purchase",
+      id: 23,
+      title: "Great Salad",
+      price: "10.00",
     },
   ],
 };
+
 
 // header section
 
@@ -177,21 +190,22 @@ const InfoContainer = styled.View`
   margin-top: 2px;
 `;
 
-const RestTitle = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 700;
+const RestTitle = styled(Text)`
   font-size: 24px;
-  line-height: 36px;
-  color: #000000;
   margin-top: 50px;
   width: 250px;
 `;
 
-const RestInfo = styled.Text`
-  font-family: UberMoveMedium;
+const RestInfo = styled(Text)`
   margin-left: 5px;
 `;
+
+const SwicherWrapper=styled.View`
+  background-color: #eeeeee;
+  border-radius: 50px;
+  height: 55px;
+  flex-direction: row;
+  padding: 5px;`
 
 // arrow and group icon
 const Arrow = styled.View`
@@ -217,79 +231,16 @@ const GroupTitle = styled.View`
 `;
 
 // delivery section
-const Delivery = styled.View`
-  display: flex;
-  flex-direction: row;
-  border-radius: 40px;
-  background-color: #eeeeee;
-  width: 343px;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin: 0 auto;
-  margin-bottom: 25px;
-  margin-top: 10px;
-`;
-
-const DeliveryRight = styled.View`
-  height: 35px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: #000000;
-  padding-right: 20px;
-  display: flex;
-  align-items: center;
-`;
-const DeliveryLeft = styled.View`
-  height: 35px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  color: #000000;
-  display: flex;
-  align-items: center;
-`;
-const SectionTitle = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 700;
+const SectionTitle = styled(Text)`
   font-size: 24px;
-  line-height: 36px;
-  color: #000000;
   margin-bottom: 18px;
 `;
 const SectionContainer = styled.View`
-  padding: 0 15px;
+  margin: 0 15px;
 `;
 
-// popular and promo btns
-
-const PopularView = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 8px;
-  width: 67px;
-  height: 30px;
-  background: #34a853;
-  border-radius: 25px;
-`;
-const Popular = styled.Text`
-  font-family: UberMoveMedium;
-  color: #ffffff;
-`;
 const BottomView = styled.View``;
-const BottomText = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+const BottomText = styled(Text)`
   text-align: center;
   color: #4ba457;
 `;
@@ -299,12 +250,40 @@ const BottomBorder = styled.View`
   background-color: #f6f6f6;
   margin-bottom: 20px;
 `;
+
+const CategoryBtnWrapper=styled.View`
+`
 const ratingImage = require("../../../assets/images/RestDetailsImages/RatingStar.png");
 const arrowImg = require("../../../assets/images/RestDetailsImages/arrow.png");
 const group = require("../../../assets/images/RestDetailsImages/Group.png");
 
+
+const btns = [
+  { title: "Delivery", value: 0 },
+  { title: "Pickup", value: 1 },
+];
+
 const RestaurantDetails = ({ route, navigation }) => {
+  const [ctgr, setCtgr] = useState(0);
+  // const [data, setData] = useState([]);
+
+  const fetchData = () => {
+    if (ctgr === 0) {
+      setData(DeliveryList);
+    } else if (ctgr === 1) {
+      setData(PickupList);
+    }
+  };
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  const handlePress = (value) => {
+    setCtgr(value);
+  };
+
   const rest = data.restaurant;
+
   const calcRating = (num) => {
     if (num > 200) {
       return "200+Rating";
@@ -313,14 +292,13 @@ const RestaurantDetails = ({ route, navigation }) => {
     }
   };
   return (
-    <Container>
+    <Container contentContainerStyle={{ paddingBottom: 30 }}>
       <HeaderImage
         source={require("../../../assets/images/RestDetailsImages/restdetails.png")}
       />
       <MapImg
         source={require("../../../assets/images/RestDetailsImages/map.png")}
       />
-
       <HeaderContainer>
         <RestTitle>{rest.name}</RestTitle>
         <InfoContainer>
@@ -329,7 +307,7 @@ const RestaurantDetails = ({ route, navigation }) => {
           </View>
           <RestInfo>
             {rest.rating}
-            {calcRating(rest.ratingQuantity)} •Pizza• $$
+            {calcRating(rest.ratingQuantity)} • Pizza • $$
           </RestInfo>
         </InfoContainer>
 
@@ -345,29 +323,45 @@ const RestaurantDetails = ({ route, navigation }) => {
           </GroupTitle>
         </GroupView>
 
-        <Delivery onPress={() => console.log("works")}>
-          <DeliveryRight>
-            <Text>Delivery</Text>
-            <Text>25 - 35 min 1.7mi</Text>
-          </DeliveryRight>
-          <DeliveryLeft>
-            <Text>Pickup</Text>
-            <Text>5 - 15 min 1.7mi</Text>
-          </DeliveryLeft>
-        </Delivery>
+        <SwicherWrapper>
+          {btns.map((btn) => {
+            return (
+              <CategoryBtnWrapper>
+                <GrayCtgrBtn
+                  Time={btn.value === 0 ? rest.deliveryTime : rest.pickupTime}
+                  Distance={
+                    btn.value === 0
+                      ? rest.deliveryDistance
+                      : rest.pickupDistance
+                  }
+                  title={btn.title}
+                  onPress={() => handlePress(btn.value)}
+                  key={btn.title}
+                  black={btn.value === ctgr ? true : false}
+                />
+              </CategoryBtnWrapper>
+            );
+          })}
+        </SwicherWrapper>
       </HeaderContainer>
 
-      <SectionContainer>
+      <SectionContainer style={{ marginTop: 23 }}>
         <SectionTitle>Most Popular</SectionTitle>
-        {data.mostPopular.map((item, idx) => {
+        {data.mostPopular.map((item) => {
           return (
             <RestDetailsCard
-              key={idx}
               title={item.title}
-              subTitle={item.price}
+              price={item.price}
+              img={item.img}
               desc={item.desc}
-              imgUrl={item.imgUrl}
-              onPress={() => navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN, {...item, restaurantName:rest.name})}
+              key={item.id}
+              promo={item.promo}
+              onPress={() =>
+                navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN, {
+                  ...item,
+                  restaurantName: rest.name,
+                })
+              }
             />
           );
         })}
@@ -375,155 +369,66 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Picked For You</SectionTitle>
-        {data.pickedForYou.map((item, idx) => {
+        {data.pickedForYou.map((item) => {
           return (
             <RestDetailsCard
-              key={idx}
               title={item.title}
-              subTitle={item.price}
+              price={item.price}
               desc={item.desc}
+              key={item.id}
+              itemQuantity={item.itemQuantity}
             />
           );
         })}
       </SectionContainer>
 
       <SectionContainer>
-        <SectionTitle>Starters</SectionTitle>
-        {data.Starters.map((item,idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              desc={item.desc}
-              imgUrl={item.imgUrl}
+        <SectionContainer>
+          <SectionTitle>Starters</SectionTitle>
+          {
+            <RestDetailsPopular
+              title={data.starters.title}
+              desc={data.starters.desc}
+              img={data.starters.img}
+              popular={data.starters.popular}
+              key={data.starters.id}
             />
-          );
-        })}
-        <PopularView>
-          <Popular>Popular</Popular>
-        </PopularView>
-      </SectionContainer>
-
-      <SectionContainer>
-        <SectionTitle>Salads</SectionTitle>
-        {data.Salads.map((item,idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              subTitle={item.price}
-              desc={item.desc}
-            />
-          );
-        })}
-        <PopularView>
-          <Popular>Popular</Popular>
-        </PopularView>
-      </SectionContainer>
-
-      <SectionContainer>
-        {data.SaladsTwo.map((item,idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              subTitle={item.price}
-              desc={item.desc}
-            />
-          );
-        })}
-        <PopularView>
-          <Popular>Popular</Popular>
-        </PopularView>
+          }
+        </SectionContainer>
       </SectionContainer>
 
       <SectionContainer>
         <SectionTitle>Our Special Pizza</SectionTitle>
-        {data.OurSpecialPizza.map((item,idx) => {
+        {data.ourSpecialPizza.map((item) => {
           return (
-            <RestDetailsCard
-              key={idx}
+            <RestDetailsPopular
               title={item.title}
-              subTitle={item.price}
+              price={item.price}
+              img={item.img}
               desc={item.desc}
-              imgUrl={item.imgUrl}
+              key={item.id}
+              popular={item.popular}
             />
           );
         })}
       </SectionContainer>
 
       <SectionContainer>
-        {data.HappyBirthdayPizza.map((item,idx) => {
+        <SectionTitle>Mischelaneous </SectionTitle>
+        {data.mischelaneous.map((item) => {
           return (
-            <RestDetailsCard
-              key={idx}
+            <RestDetailsPopular
               title={item.title}
-              subTitle={item.price}
+              price={item.price}
+              img={item.img}
               desc={item.desc}
-            />
-          );
-        })}
-        <PopularView>
-          <Popular>Popular</Popular>
-        </PopularView>
-      </SectionContainer>
-
-      <SectionContainer>
-        <SectionTitle>Miscellaneous</SectionTitle>
-        {data.Miscellaneous.map((item,idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              subTitle={item.price}
-            />
-          );
-        })}
-        <PopularView>
-          <Popular>Popular</Popular>
-        </PopularView>
-      </SectionContainer>
-
-      <SectionContainer>
-        {data.Marinara.map((item ,idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              subTitle={item.price}
-            />
-          );
-        })}
-        <PopularView>
-          <Popular>Popular</Popular>
-        </PopularView>
-      </SectionContainer>
-
-      <SectionContainer>
-        {data.BalsamicGlaze.map((item,idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              subTitle={item.price}
+              key={item.id}
+              popular={item.popular}
             />
           );
         })}
       </SectionContainer>
 
-      <SectionContainer>
-        <SectionTitle>Alcohol - Beer (Must be 21 to Purchase)</SectionTitle>
-        {data.AlcoholBeer.map((item, idx) => {
-          return (
-            <RestDetailsCard
-              key={idx}
-              title={item.title}
-              subTitle={item.price}
-              desc={item.desc}
-            />
-          );
-        })}
-      </SectionContainer>
       <BottomBorder />
       <BottomView>
         <BottomText>Save US$25. Conditions apply.</BottomText>

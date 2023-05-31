@@ -5,9 +5,11 @@ import styled from "styled-components";
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
 
-const statusBarHeight= StatusBar.curentHeight;
+const statusBarHeight = StatusBar.currentHeight;
 
-const MainWrapper = styled.KeyboardAvoidingView``;
+const MainWrapper = styled.KeyboardAvoidingView`
+  flex: 1;
+`;
 
 const ImageBackground = styled.ImageBackground`
   height: ${windowHeight}px;
@@ -21,14 +23,14 @@ const Container = styled.SafeAreaView`
   padding-top: ${Platform.OS === "ios" ? "0" : statusBarHeight}px;
 `;
 
-const Screen = ({ children,style, ...otherProps }) => {
+const Screen = ({ children, style, ...otherProps }) => {
   return (
     <MainWrapper
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       {...otherProps}
     >
       <ImageBackground>
-        <Container style={style} >{children}</Container>
+        <Container style={style}>{children}</Container>
       </ImageBackground>
     </MainWrapper>
   );

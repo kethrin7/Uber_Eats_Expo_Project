@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-
 import styled from "styled-components";
 
 const Container = styled.Pressable`
@@ -14,7 +13,7 @@ const Container = styled.Pressable`
 `;
 
 const RightContainer = styled.View`
-  width: ${({ imgUrl }) => (imgUrl ? "60%" : "80%")};
+  width: ${({ img }) => (img ? "60%" : "80%")};
 `;
 
 const LeftContainer = styled.View`
@@ -24,43 +23,33 @@ const LeftContainer = styled.View`
 `;
 
 const Title = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  color: #000000;
+  font-size: 20px;
+  margin-bottom: 4px;
 `;
-const SubTitle = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 400;
+const Price = styled.Text`
   font-size: 14px;
-  line-height: 20px;
+  margin-bottom: 4px;
 `;
 
 const Desc = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
 `;
 const RestDetailsCard = ({
   title = "Title",
-  subTitle = "Subtitle",
+  price = "price",
   desc = "Desc",
-  imgUrl,
+  img,
   onPress
 }) => {
   return (
     <Container onPress={onPress}>
-      <RightContainer imgUrl={imgUrl}>
+      <RightContainer img={img}>
         {title && <Title>{title}</Title>}
-        {subTitle && <SubTitle>{subTitle}</SubTitle>}
+        {price && <Price>${price}</Price>}
         {desc && <Desc>{desc}</Desc>}
       </RightContainer>
       <LeftContainer>
-        <Image source={imgUrl} />
+        <Image source={img} />
       </LeftContainer>
     </Container>
   );

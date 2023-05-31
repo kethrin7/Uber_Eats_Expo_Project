@@ -19,3 +19,7 @@ export const RESTAURANT_DETAILS = "RestaurantDetails";
 export const DEALS_SCREEN = "Deals";
 export const ORDERS_DETAILS_SCREEN="OrdersDetails"
 
+export const DELIVERY_SCREEN = "Delivery";
+export const TRACK_ORDER = "TrackOrder";
+export const MAP="MAP"
+export const FINISH_DELIVERY="FinishDelivery"

@@ -1,6 +1,7 @@
 import React from "react";
 import { Image } from "react-native";
 import styled from "styled-components";
+import Text from "./Text";
 
 const Container = styled.Pressable`
   height: 40px;
@@ -13,13 +14,9 @@ const Container = styled.Pressable`
   padding: 0 20px;
 `;
 
-const Title = styled.Text`
-  font-family: UberMoveMedium;
+const Title = styled (Text)`
   color: ${({ light }) => (light ? "#000000" : "#FFFFFF")};
-  font-style: normal;
-  font-weight: 500;
   font-size: 14px;
-  line-height: 20px;
 `;
 
 const Icon = styled.Image`

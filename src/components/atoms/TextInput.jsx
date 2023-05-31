@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 import React from "react";
 import { Octicons } from "@expo/vector-icons";
 

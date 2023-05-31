@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import Screen from "../atoms/Screen";
-import CtgrBtn from "../atoms/CtgrBtn";
-import { Image, View } from "react-native";
-import ShopCard from "../organisms/ShopCard";
 import { ScrollView } from "react-native";
+import { Image, View } from "react-native";
+import styled from "styled-components";
+
+import CtgrBtn from "../atoms/CtgrBtn";
+import Screen from "../atoms/Screen";
+import ShopCard from "../organisms/ShopCard";
+import Text from "../atoms/Text";
 
 const ShopCardData = [
   {
@@ -37,41 +39,6 @@ const ShopCardData = [
   },
   {
     id: 5,
-    title: "Tako bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  },
-  {
-    id: 6,
-    title: "Begs & Megs",
-    subtitle: "1 item • US$43.00",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  },
-  {
-    id: 7,
-    title: "Taco Bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
-  },
-  {
-    id: 8,
-    title: "Tako bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  },
-  {
-    id: 9,
-    title: "Tako bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
-  },
-  {
-    id: 10,
     title: "Tako bell",
     subtitle: "1 item • US 43$",
     desc: "Deliver to San Franciscao Bay Area",
@@ -111,22 +78,13 @@ const OrderBtn = styled(CtgrBtn)`
   top: 73px;
 `;
 
-const Title = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 500;
+const Title = styled(Text)`
   font-size: 20px;
-  line-height: 28px;
   align-items: center;
 `;
 
-const SubTitle = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 400;
+const SubTitle = styled(Text)`
   font-size: 16px;
-  line-height: 24px;
-  text-align: center;
   padding: 0 15px;
   color: #545454;
   text-align: center;

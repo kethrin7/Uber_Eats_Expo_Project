@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
 import React from "react";
 import styled from "styled-components";
+
+import Text from "./Text";
 
 const Container = styled.Pressable`
   border: 1px solid #e8e8e8;
@@ -12,15 +13,8 @@ const CardImage = styled.Image`
   height: 98px;
 `;
 
-const Title = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 20px;
-  align-items: center;
+const Title = styled(Text)`
   text-align: center;
-  color: #000000;
   margin: 10px 0;
 `;
 

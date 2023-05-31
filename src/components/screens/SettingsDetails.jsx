@@ -24,21 +24,7 @@ const MainImage = styled.Image`
   margin: 23px 0 30px 0;
 `;
 const MainTitle = styled(Text)`
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  color: #000000;
 `;
-
-// const MainSubTitle = styled.Text`
-//   font-family: UberMoveMedium;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 16px;
-//   line-height: 20px;
-//   color: #1d5c2e;
-//   margin: 20px 0 53px 0;
-// `;
 
 const SettingsDetails = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -87,14 +73,3 @@ const SettingsDetails = ({ navigation }) => {
 
 export default SettingsDetails;
 
-{
-  /* <ImagePicker
-  title={"EDIT ACCOUNT"}
-  type={"bold"}
-  fontSize={16}
-  margin={10}
-  color={"#1d5c2e"}
->
-  {children}
-</ImagePicker>; */
-}

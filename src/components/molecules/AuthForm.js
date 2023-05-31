@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Button from "../atoms/Button";
+import React from "react";
 import styled from "styled-components";
+
+import Button from "../atoms/Button";
 
 const Container = styled.View``;
 
@@ -14,7 +15,6 @@ const UserName = styled.TextInput`
 `;
 
 const Password = styled.TextInput`
-  font-family: UberMoveMedium;
   background-color: #ece6e1;
   height: 50px;
   border-radius: 10px;

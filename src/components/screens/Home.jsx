@@ -1,4 +1,4 @@
-import { Text, View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import { useEffect, useState } from "react";
 import React from "react";
 import MainCard from "../organisms/MainCard";
@@ -12,6 +12,7 @@ import CtgrBtn from "../atoms/CtgrBtn";
 import CategoryCard from "../atoms/CategoryCard";
 import Screen from "../../components/atoms/Screen";
 import styled from "styled-components";
+import Text from "../atoms/Text";
 
 // Data
 const DeliveryList = [
@@ -182,7 +183,7 @@ const DineinList = [
 
 const CategoryListItems = [
   {
-    id:44,
+    id: 44,
     title: "Convenience",
     imgUrl: require("../../../assets/images/BotomSheetImages/convenience.png"),
   },
@@ -272,12 +273,8 @@ const Container = styled(Screen)`
   background-color: #ffffff;
 `;
 
-const InnerContainer = styled.ScrollView`
-`;
+const InnerContainer = styled.ScrollView``;
 
-HeaderComponent = () => {
-  return <View style={{ height:300 }}></View>;
-};
 const SortContainer = styled.View``;
 
 const SortTopContainer = styled.View`
@@ -294,14 +291,9 @@ const SortBottomContainer = styled.View`
   align-items: center;
 `;
 
-const Location = styled.Text`
-  font-family: UberMoveMedium;
-  font-style: normal;
-  font-weight: 500;
+const Location = styled(Text)`
   font-size: 18px;
   align-items: center;
-  line-height: 23px;
-  color: #000000;
 `;
 
 const CategoryBtn = styled(CtgrBtn)`
@@ -315,6 +307,10 @@ const CtgrBtnWrapper = styled.View`
   align-items: center;
   margin-bottom: 25px;
 `;
+
+HeaderComponent = () => {
+  return <View style={{ height: 300 }}></View>;
+};
 
 function Home({ navigation }) {
   const [ctgr, setCtgr] = useState(0);
@@ -351,14 +347,14 @@ function Home({ navigation }) {
 
   return (
     <Container>
-      {loading && <ActivityIndicator size="large" color="green"/>}
+      {loading && <ActivityIndicator size="large" color="green" />}
       <InnerContainer
         showsVerticalScrollIndicator={false}
-        style={{ display: loading ? "none" : "flex"}}
+        style={{ display: loading ? "none" : "flex" }}
       >
         <SortContainer>
           <SortTopContainer>
-            {btns.map((item,idx) => {
+            {btns.map((item, idx) => {
               return (
                 <CategoryBtn
                   key={idx}
@@ -396,7 +392,7 @@ function Home({ navigation }) {
           </CtgrBtnWrapper>
         </SortContainer>
 
-        {data.map((item, idx)=> {
+        {data.map((item, idx) => {
           return (
             <MainCard
               key={idx}
@@ -436,7 +432,7 @@ function Home({ navigation }) {
             </Text>
           </View>
           <ScrollView horizontal>
-            {data.map((item,idx) => {
+            {data.map((item, idx) => {
               return (
                 <MainCard
                   key={idx}
@@ -459,7 +455,7 @@ function Home({ navigation }) {
             })}
           </ScrollView>
         </View>
-        {data.map((item,idx) => {
+        {data.map((item, idx) => {
           return (
             <MainCard
               key={idx}
@@ -499,7 +495,7 @@ function Home({ navigation }) {
             </Text>
           </View>
           <ScrollView horizontal>
-            {data.map((item,idx) => {
+            {data.map((item, idx) => {
               return (
                 <MainCard
                   key={idx}
@@ -520,7 +516,7 @@ function Home({ navigation }) {
                 />
               );
             })}
-            {data.map((item,idx) => {
+            {data.map((item, idx) => {
               return (
                 <MainCard
                   key={idx}
@@ -544,7 +540,11 @@ function Home({ navigation }) {
           </ScrollView>
         </View>
         <Portal>
-          <BottomSheet bottomSheetRef={categorySheetRef} modalHeight={700}>
+          <BottomSheet
+            bottomSheetRef={categorySheetRef}
+            modalHeight={700}
+            title="All Category"
+          >
             {CategoryListItems.map((item) => (
               <CategoryCard
                 title={item.title}

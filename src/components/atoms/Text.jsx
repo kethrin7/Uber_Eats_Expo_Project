@@ -5,16 +5,16 @@ import styled from "styled-components";
 const StyledText = styled.Text`
   font-family: ${({ type }) => {
     switch (type) {
+      case "Medium":
+        return "UberMoveMedium";
       case "Bold":
         return "UberMoveBold";
-      case "Medium":
-        return "Uber-Medium";
     }
   }};
   font-size: ${({ size }) => (size ? size : 16)}px;
 `;
 
-const Text = ({ children, type = "Bold", size, ...otherProps }) => (
+const Text = ({ children, type = "Medium", size, ...otherProps }) => (
   <StyledText type={type} size={size} {...otherProps}>
     {children}
   </StyledText>

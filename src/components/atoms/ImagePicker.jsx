@@ -1,7 +1,9 @@
-import { View, Text } from "react-native";
 import React from "react";
 import * as ImgPicker from "expo-image-picker";
 import styled from "styled-components";
+
+import Text from "./Text";
+
 
 const Container = styled.Pressable``;
 
