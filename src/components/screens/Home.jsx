@@ -17,7 +17,7 @@ import Text from "../atoms/Text";
 // Data
 const DeliveryList = [
   {
-    id: 0,
+    id: 102,
     imgUrl: require("../../../assets/images/photo1.png"),
     title: "BBN inn",
     price: "3",
@@ -183,7 +183,6 @@ const DineinList = [
 
 const CategoryListItems = [
   {
-    id: 44,
     title: "Convenience",
     imgUrl: require("../../../assets/images/BotomSheetImages/convenience.png"),
   },
@@ -392,10 +391,10 @@ function Home({ navigation }) {
           </CtgrBtnWrapper>
         </SortContainer>
 
-        {data.map((item, idx) => {
+        {data.map((item) => {
           return (
             <MainCard
-              key={idx}
+              key={item.id}
               imgUrl={item.imgUrl}
               title={item.title}
               price={ctgr === 0 ? item.price : ""}
@@ -413,6 +412,7 @@ function Home({ navigation }) {
             />
           );
         })}
+
         <View>
           <View
             style={{
@@ -439,7 +439,7 @@ function Home({ navigation }) {
                   imgUrl={item.imgUrl}
                   title={item.title}
                   price={ctgr === 0 ? item.price : ""}
-                  distance={ctgr === 1 ? item.distance : ""}
+                  distance={ctgr === 1 && item.distance ? item.distance : ""}
                   deliveryTime={item.deliveryTime}
                   rating={item.rating}
                   promotion={ctgr === 0 ? item.promotion : ""}
@@ -455,14 +455,14 @@ function Home({ navigation }) {
             })}
           </ScrollView>
         </View>
-        {data.map((item, idx) => {
+        {data.map((item) => {
           return (
             <MainCard
-              key={idx}
+              key={item.id}
               imgUrl={item.imgUrl}
               title={item.title}
               price={ctgr === 0 ? item.price : ""}
-              distance={ctgr === 1 ? item.distance : ""}
+              distance={ctgr === 1 && item.distance ? item.distance : ""}
               deliveryTime={item.deliveryTime}
               rating={item.rating}
               promotion={ctgr === 0 ? item.promotion : ""}
@@ -502,7 +502,7 @@ function Home({ navigation }) {
                   imgUrl={item.imgUrl}
                   title={item.title}
                   price={ctgr === 0 ? item.price : ""}
-                  distance={ctgr === 1 ? item.distance : ""}
+                  distance={ctgr === 1 && item.distance ? item.distance : ""}
                   deliveryTime={item.deliveryTime}
                   rating={item.rating}
                   promotion={ctgr === 0 ? item.promotion : ""}
@@ -516,14 +516,14 @@ function Home({ navigation }) {
                 />
               );
             })}
-            {data.map((item, idx) => {
+            {data.map((item) => {
               return (
                 <MainCard
-                  key={idx}
+                  key={item.id}
                   imgUrl={item.imgUrl}
                   title={item.title}
                   price={ctgr === 0 ? item.price : ""}
-                  distance={ctgr === 1 ? item.distance : ""}
+                  distance={ctgr === 1 && item.distance ? item.distance : ""}
                   deliveryTime={item.deliveryTime}
                   rating={item.rating}
                   promotion={ctgr === 0 ? item.promotion : ""}
@@ -545,9 +545,9 @@ function Home({ navigation }) {
             modalHeight={700}
             title="All Category"
           >
-            {CategoryListItems.map((item) => (
+            {CategoryListItems.map((item, idx) => (
               <CategoryCard
-                key={item.id}
+                key={idx}
                 title={item.title}
                 imgUrl={item.imgUrl}
                 onPress={() => console.log(item.title)}

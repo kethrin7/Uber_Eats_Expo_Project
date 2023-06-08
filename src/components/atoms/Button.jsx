@@ -5,7 +5,7 @@ import Text from "./Text";
 
 const Container = styled.Pressable`
   width: 258px;
-  height: 45px;
+  height: 50px;
   background-color: #54924f;
   border-radius: 15px;
   justify-content: center;
