@@ -23,3 +23,9 @@ export const DELIVERY_SCREEN = "Delivery";
 export const TRACK_ORDER = "TrackOrder";
 export const MAP="MAP"
 export const FINISH_DELIVERY="FinishDelivery"
+
+export const GROCERY_SCREEN="Grocery"
+export const STORE_SCREEN="Store"
+export const ITEM_DETAIL_SCREEN = "ItemDetails";
+export const NOTE="Note"
+export const ORDER_SCREEN="Order"

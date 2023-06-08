@@ -11,7 +11,7 @@ const StyledText = styled.Text`
         return "UberMoveBold";
     }
   }};
-  font-size: ${({ size }) => (size ? size : 16)}px;
+  font-size: ${({ size }) => (size ? size : 18)}px;
 `;
 
 const Text = ({ children, type = "Medium", size, ...otherProps }) => (

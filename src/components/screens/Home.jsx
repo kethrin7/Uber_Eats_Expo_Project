@@ -327,6 +327,14 @@ function Home({ navigation }) {
       setData(DineinList);
     }
   };
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      fetchData();
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   const handlePress = (value) => {
     setCtgr(value);
   };
@@ -336,14 +344,6 @@ function Home({ navigation }) {
     { title: "Pickup", value: 1 },
     { title: "Dine-In", value: 2 },
   ];
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      fetchData();
-      setLoading(false);
-    }, 1000);
-  }, []);
 
   return (
     <Container>
@@ -547,6 +547,7 @@ function Home({ navigation }) {
           >
             {CategoryListItems.map((item) => (
               <CategoryCard
+                key={item.id}
                 title={item.title}
                 imgUrl={item.imgUrl}
                 onPress={() => console.log(item.title)}

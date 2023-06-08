@@ -1,11 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "react-native-vector-icons";
 
 import * as ROUTES from "../constants/Routes";
 import Browse from "../components/screens/Browse";
 import Home from "../components/screens/Home";
 import Shop from "../components/screens/shop";
 import SettingsNavigator from "../navigation/SettingsNavigator";
+import Grocery from "../components/screens/Grocery";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,10 +22,13 @@ function BottomTabNavigator() {
             icon = focused ? "home" : "home-outline";
           } else if (route.name === ROUTES.BROWSE_SCREEN) {
             icon = focused ? "card" : "card-outline";
+          } else if (route.name === ROUTES.GROCERY_SCREEN) {
+            icon = focused ? "shopping" : "shopping-outline";
+            return (
+              <MaterialCommunityIcons name={icon} size={20} color={color} />
+            );
           } else if (route.name === ROUTES.SHOP_SCREEN) {
             icon = focused ? "fast-food" : "fast-food-outline";
-          } else if (route.name === ROUTES.HOME_SCREEN) {
-            icon = focused ? "home" : "home-outline";
           } else if (route.name === ROUTES.SETTINGS_NAVIGATOR) {
             icon = focused ? "settings" : "settings-outline";
           }
@@ -41,6 +45,11 @@ function BottomTabNavigator() {
         name={ROUTES.BROWSE_SCREEN}
         component={Browse}
         options={{ title: "Browse", headerShown: false }}
+      />
+      <Tab.Screen
+        name={ROUTES.GROCERY_SCREEN}
+        component={Grocery}
+        options={{ title: "Grocery", headerShown: false }}
       />
       <Tab.Screen
         name={ROUTES.SHOP_SCREEN}

@@ -9,7 +9,6 @@ import BrowseCard from "../atoms/BrowseCard";
 import Screen from "../atoms/Screen";
 import Search from "../atoms/TextInput";
 
-
 const Container = styled(Screen)`
   background-color: #ffffff;
 `;

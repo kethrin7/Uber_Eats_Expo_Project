@@ -5,7 +5,7 @@ import Text from "./Text";
 
 const Container = styled.Pressable`
   height: 40px;
-  background-color: ${({ light }) => (light ? `#EEEEEE` : `#000000`)};
+  background-color: ${({ light }) => (light ? `#ffffff` : `#000000`)};
   display: flex;
   flex-direction: row;
   border-radius: 50%;
@@ -15,8 +15,8 @@ const Container = styled.Pressable`
 `;
 
 const Title = styled (Text)`
-  color: ${({ light }) => (light ? "#000000" : "#FFFFFF")};
-  font-size: 14px;
+  color: ${({ light }) => (light ? "#000000" : "#EEEEEE")};
+  font-size: 18px;
 `;
 
 const Icon = styled.Image`

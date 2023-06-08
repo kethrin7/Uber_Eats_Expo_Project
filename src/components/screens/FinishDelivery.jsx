@@ -16,7 +16,8 @@ const MainTitle = styled(Text)`
   margin: 20px 0 35px 0;
 `;
 const SubTitle = styled(Text)`
-line-height:24px`;
+  line-height: 24px;
+`;
 
 const AdditionalWrapper = styled.View`
   display: flex;
@@ -24,7 +25,7 @@ const AdditionalWrapper = styled.View`
   align-items: center;
   margin: 143px 22px;
 `;
-const NextView = styled.Pressable`
+const BlackButtonView = styled.Pressable`
   background-color: #000000;
   padding: 15px;
   align-items: center;
@@ -51,9 +52,9 @@ const FinishDelivery = ({ navigation }) => {
         />
       </AdditionalWrapper>
 
-      <NextView onPress={() => navigation.navigate(ROUTES.HOME_SCREEN)}>
+      <BlackButtonView onPress={() => navigation.navigate(ROUTES.HOME_SCREEN)}>
         <Text style={{ color: "#ffffff" }}>Close</Text>
-      </NextView>
+      </BlackButtonView>
     </Container>
   );
 };

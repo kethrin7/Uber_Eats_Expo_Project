@@ -14,8 +14,12 @@ import OrdersDetails from "../components/screens/OrdersDetail";
 import RestaurantDetails from "../components/screens/RestaurantDetails";
 import SignIn from "../components/screens/SignIn";
 import SettingsDetails from "../components/screens/SettingsDetails";
+import Store from "../components/screens/Store";
 import TrackOrder from "../components/screens/TrackOrder";
 import FinishDelivery from "../components/screens/FinishDelivery";
+import ItemDetails from "../components/screens/ItemDetails";
+import Note from "../components/screens/Note";
+import Order from "../components/screens/Order";
 
 const Stack = createNativeStackNavigator();
 
@@ -91,7 +95,27 @@ const AuthNavigator = () => {
           <Stack.Screen
             name={ROUTES.FINISH_DELIVERY}
             component={FinishDelivery}
-            options={{ title: "Track Order", headerShown: true }}
+            options={{ title: "Finish Order", headerShown: true }}
+          />
+          <Stack.Screen
+            name={ROUTES.STORE_SCREEN}
+            component={Store}
+            options={{ title: "Store Screen", headerShown: true }}
+          />
+          <Stack.Screen
+            name={ROUTES.ITEM_DETAIL_SCREEN}
+            component={ItemDetails}
+            options={{ title: "Item Details", headerShown: true }}
+          />
+          <Stack.Screen
+            name={ROUTES.NOTE}
+            component={Note}
+            options={{ title: "Leave a note", headerShown: true }}
+          />
+          <Stack.Screen
+            name={ROUTES.ORDER_SCREEN}
+            component={Order}
+            options={{ title: "Your Order", headerShown: true }}
           />
         </Stack.Navigator>
       </Host>
