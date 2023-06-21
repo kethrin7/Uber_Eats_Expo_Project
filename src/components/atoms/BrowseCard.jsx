@@ -9,8 +9,8 @@ const Container = styled.Pressable`
   margin-bottom: 16px;
 `;
 const CardImage = styled.Image`
-  width: 180px;
-  height: 98px;
+  /* width: 180px;
+  height: 98px; */
 `;
 
 const Title = styled(Text)`

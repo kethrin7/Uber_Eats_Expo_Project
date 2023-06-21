@@ -6,9 +6,9 @@ const StyledText = styled.Text`
   font-family: ${({ type }) => {
     switch (type) {
       case "Medium":
-        return "UberMoveMedium";
+        return "Uber-Medium";
       case "Bold":
-        return "UberMoveBold";
+        return "Uber-Bold";
     }
   }};
   font-size: ${({ size }) => (size ? size : 18)}px;

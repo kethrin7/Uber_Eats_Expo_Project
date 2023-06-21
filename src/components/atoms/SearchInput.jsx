@@ -1,24 +1,26 @@
-import { StyleSheet, View, TextInput } from "react-native";
-import React from "react";
-import { Octicons } from "@expo/vector-icons";
+import { StyleSheet ,View, Text, TextInput } from 'react-native'
+import React from 'react'
+import {Octicons} from "@expo/vector-icons"
 
-const Input = () => {
+const SearchInput = ({value, onChangeText, ...otherProps}) => {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Octicons name="search" size={24} color="black" />
+        <Octicons name="search" size={18} color="black" />
       </View>
-      <TextInput placeholder="food,shopping,drinks,ect" style={styles.input} />
+      <TextInput
+        onChangeText={(text) => onChangeText(text)}
+        value={value}
+        placeholder="food,shopping,drinks,ect"
+        style={styles.input}
+        {...otherProps}
+      />
     </View>
   );
-};
-
-export default Input;
-
+}
 const styles = StyleSheet.create({
   container: {
     height: 44,
-    width: "100%",
     backgroundColor: "#eeeeee",
     borderRadius: 99,
     display: "flex",
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 5,
+    marginHorizontal:22
   },
   iconContainer: {
     display: "flex",
@@ -40,3 +43,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 });
+
+export default SearchInput
+

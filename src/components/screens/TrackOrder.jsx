@@ -17,7 +17,7 @@ const MainTitle = styled(Text)`
   margin: 15px 0 8px 0;
 `;
 const Subtitle = styled(Text)`
-  font-family: UberMoveMedium;
+  font-family: Uber-Medium;
 `;
 
 const DeliveryTime = styled.View`

@@ -19,14 +19,13 @@ const LabelContainer = styled.Pressable`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
   height: 100%;
   margin-bottom: 12px;
 `;
 
 const IconText = styled.Text`
-  font-family: UberMoveBold;
-  margin-left: 5px;
+  font-family: Uber-Medium;
+  padding-left: 5px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -59,7 +58,7 @@ const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
             onPress={() => setTypes(0)}
             style={{ border: type === 0 ? "1px solid black" : "" }}
           >
-            <Ionicons name="pricetag" size="25" />
+            <Ionicons name="pricetag" size={25} />
             <IconText>Offers</IconText>
           </LabelContainer>
           {type === 0 && <Separator />}
@@ -69,7 +68,7 @@ const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
             onPress={() => setTypes(1)}
             style={{ border: type === 1 ? "1px solid black" : "" }}
           >
-            <Ionicons name="star" size="25" />
+            <Ionicons name="star" size={25} />
             <IconText>Rewards</IconText>
           </LabelContainer>
           {type === 1 && <Separator />}
@@ -117,7 +116,7 @@ const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
       title: "Cardinal Chips",
       price: "0.50",
       deliveryTime: "10-25",
-      rating: 4.1,
+      rating: 4.9,
       promotion: true,
       promQuantity: 5,
       promPrice: 8,
@@ -248,13 +247,13 @@ const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
         }}
         showsVerticalScrollIndicator={false}
         data={type === 1 ? DeliveryList : PickupList}
-        renderItem={({ item }) => (
+        renderItem={({ item ,idx}) => (
           <MainCard
-            key={item.id}
+            key={idx}
             imgUrl={item.imgUrl}
             title={item.title}
             price={type === 0 ? item.price : ""}
-            distance={type === 0 ? item.distance : ""}
+            distance={type === 1 ? item.distance : ""}
             deliveryTime={item.deliveryTime}
             rating={item.rating}
             promotion={type === 1 ? item.promotion : ""}

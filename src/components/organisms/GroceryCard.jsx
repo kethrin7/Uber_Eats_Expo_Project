@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Text from "../atoms/Text";
 
 const Container = styled.Pressable`
-  width: 185px;
-  height: 185px;
+  width: 170px;
+  height: 175px;
   ${({ color }) => (color ? `background-Color:${color}` : "")}
   display:flex;
   justify-content:space-between;

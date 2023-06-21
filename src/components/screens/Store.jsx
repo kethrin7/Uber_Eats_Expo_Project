@@ -25,7 +25,7 @@ const CategoryCard = styled(CtgrBtn)`
 const TitleWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 22px 22px;
+  margin: 0 22px 22px 10px;
 `;
 const Wrapper = styled.View`
   flex-direction: row;
@@ -334,7 +334,7 @@ const Store = ({ navigation }) => {
         {ctgr === 0 ? (
           <>
             <TitleWrapper style={{ marginTop: 22 }}>
-              <Title style={{ fontFamily: "UberMoveBold" }}>
+              <Title style={{ fontFamily: "Uber-Bold" }}>
                 Fruits & Vegetables
               </Title>
               <Wrapper>
@@ -359,7 +359,7 @@ const Store = ({ navigation }) => {
             </ScrollView>
 
             <TitleWrapper style={{ marginTop: 22 }}>
-              <Title style={{ fontFamily: "UberMoveBold" }}>Beverage</Title>
+              <Title style={{ fontFamily: "Uber-Bold" }}>Beverage</Title>
               <Wrapper>
                 <SubTitle>see all</SubTitle>
                 <Image
@@ -381,7 +381,7 @@ const Store = ({ navigation }) => {
             </ScrollView>
 
             <TitleWrapper style={{ marginTop: 22 }}>
-              <Title style={{ fontFamily: "UberMoveBold" }}>Frozen Foods</Title>
+              <Title style={{ fontFamily: "Uber-Bold" }}>Frozen Foods</Title>
               <Wrapper>
                 <SubTitle>see all</SubTitle>
                 <Image
@@ -403,7 +403,7 @@ const Store = ({ navigation }) => {
             </ScrollView>
 
             <TitleWrapper style={{ marginTop: 22 }}>
-              <Title style={{ fontFamily: "UberMoveBold" }}>
+              <Title style={{ fontFamily: "Uber-Bold" }}>
                 Pantry & Groceries
               </Title>
               <Wrapper>

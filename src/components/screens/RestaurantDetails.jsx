@@ -347,14 +347,14 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer style={{ marginTop: 23 }}>
         <SectionTitle>Most Popular</SectionTitle>
-        {data.mostPopular.map((item) => {
+        {data.mostPopular.map((item, index) => {
           return (
             <RestDetailsCard
               title={item.title}
               price={item.price}
               img={item.img}
               desc={item.desc}
-              key={item.id}
+              key={index}
               promo={item.promo}
               onPress={() =>
                 navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN, {
@@ -369,13 +369,13 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Picked For You</SectionTitle>
-        {data.pickedForYou.map((item) => {
+        {data.pickedForYou.map((item, index) => {
           return (
             <RestDetailsCard
               title={item.title}
               price={item.price}
               desc={item.desc}
-              key={item.id}
+              key={index}
               itemQuantity={item.itemQuantity}
             />
           );
@@ -399,14 +399,14 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Our Special Pizza</SectionTitle>
-        {data.ourSpecialPizza.map((item) => {
+        {data.ourSpecialPizza.map((item, index) => {
           return (
             <RestDetailsPopular
               title={item.title}
               price={item.price}
               img={item.img}
               desc={item.desc}
-              key={item.id}
+              key={index}
               popular={item.popular}
             />
           );
@@ -415,14 +415,14 @@ const RestaurantDetails = ({ route, navigation }) => {
 
       <SectionContainer>
         <SectionTitle>Mischelaneous </SectionTitle>
-        {data.mischelaneous.map((item) => {
+        {data.mischelaneous.map((item, index) => {
           return (
             <RestDetailsPopular
               title={item.title}
               price={item.price}
               img={item.img}
               desc={item.desc}
-              key={item.id}
+              key={index}
               popular={item.popular}
             />
           );

@@ -108,8 +108,11 @@ const handlePress = (value) => {
             />
           );
         })}
-        <Text style={{ marginLeft: 22, marginTop:15,fontFamily:"UberMoveMedium"
- }}>About</Text>
+        <Text
+          style={{ marginLeft: 22, marginTop: 15, fontFamily: "Uber-Medium" }}
+        >
+          About
+        </Text>
       </ScrollView>
     </Container>
   );

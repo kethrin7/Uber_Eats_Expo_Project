@@ -6,6 +6,7 @@ import ImagePicker from "../atoms/ImagePicker";
 import Screen from "../atoms/Screen";
 import SettingDetailsCard from "../organisms/SettingDetailsCard";
 import Text from "../atoms/Text";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Container = styled(Screen)`
   display: flex;
@@ -44,29 +45,31 @@ const SettingsDetails = ({ navigation }) => {
 
   return (
     <Container>
-      <MainInfoContainer>
-        <MainImage
-          source={
-            image
-              ? { uri: image }
-              : require("../../../assets/images/SettingImages/userInfo.png")
-          }
-        />
-        {editing ? (
-          <TextInput
-            value={name}
-            onChangeText={handleNameChange}
-            onBlur={finishEditing}
-            autoFocus
+      <ScrollView>
+        <MainInfoContainer>
+          <MainImage
+            source={
+              image
+                ? { uri: image }
+                : require("../../../assets/images/SettingImages/userInfo.png")
+            }
           />
-        ) : (
-          <Pressable onPress={startEditing}>
-            <MainTitle>{name}</MainTitle>
-          </Pressable>
-        )}
-        <ImagePicker title={"EDIT ACCOUNT"} />
-      </MainInfoContainer>
-      <SettingDetailsCard />
+          {editing ? (
+            <TextInput
+              value={name}
+              onChangeText={handleNameChange}
+              onBlur={finishEditing}
+              autoFocus
+            />
+          ) : (
+            <Pressable onPress={startEditing}>
+              <MainTitle>{name}</MainTitle>
+            </Pressable>
+          )}
+          <ImagePicker title={"EDIT ACCOUNT"} />
+        </MainInfoContainer>
+        <SettingDetailsCard />
+      </ScrollView>
     </Container>
   );
 };

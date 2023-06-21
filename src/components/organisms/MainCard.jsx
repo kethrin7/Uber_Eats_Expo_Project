@@ -24,7 +24,7 @@ const Title = styled(Text)`
 `;
 
 const SubTitle = styled(Text)`
-  font-family: UberMoveMedium;
+  font-family: Uber-Medium;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

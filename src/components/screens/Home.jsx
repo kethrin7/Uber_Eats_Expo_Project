@@ -27,16 +27,6 @@ const DeliveryList = [
     promPrice: 8,
   },
   {
-    id: 1,
-    imgUrl: require("../../../assets/images/photo2.png"),
-    title: "Gourmet Burger Kitchen GBK",
-    price: "0.70",
-    deliveryTime: "10-25",
-    rating: 4.4,
-    promQuantity: 5,
-    promPrice: 8,
-  },
-  {
     id: 2,
     imgUrl: require("../../../assets/images/photo3.png"),
     title: "African Flavour",
@@ -52,7 +42,7 @@ const DeliveryList = [
     title: "Cardinal Chips",
     price: "0.50",
     deliveryTime: "10-25",
-    rating: 4.1,
+    rating: 4.9,
     promotion: true,
     promQuantity: 5,
     promPrice: 8,
@@ -63,16 +53,26 @@ const DeliveryList = [
     title: "Scents Restaurant",
     price: "0.60",
     deliveryTime: "10-25",
-    rating: 4.3,
+    rating: 4.5,
     promQuantity: 5,
     promPrice: 8,
   },
+  {
+    id: 104,
+    imgUrl: require("../../../assets/images/photo2.png"),
+    title: "BBN inn",
+    price: "3",
+    deliveryTime: "10-25",
+    rating: 4.9,
+    promQuantity: 5,
+    promPrice: 8,
+  }
 ];
 
 const PickupList = [
   {
     id: 7,
-    imgUrl: require("../../../assets/images/photo1.png"),
+    imgUrl: require("../../../assets/images/photo2.png"),
     title: "BBN inn",
     price: "3",
     deliveryTime: "10-25",
@@ -83,7 +83,7 @@ const PickupList = [
   },
   {
     id: 8,
-    imgUrl: require("../../../assets/images/photo2.png"),
+    imgUrl: require("../../../assets/images/photo1.png"),
     title: "Gourmet Burger Kitchen GBK",
     price: "0.70",
     deliveryTime: "10-25",

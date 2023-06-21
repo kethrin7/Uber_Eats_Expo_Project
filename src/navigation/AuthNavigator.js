@@ -20,6 +20,7 @@ import FinishDelivery from "../components/screens/FinishDelivery";
 import ItemDetails from "../components/screens/ItemDetails";
 import Note from "../components/screens/Note";
 import Order from "../components/screens/Order";
+import RegisterScreen from "../components/screens/RegisterScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -116,6 +117,11 @@ const AuthNavigator = () => {
             name={ROUTES.ORDER_SCREEN}
             component={Order}
             options={{ title: "Your Order", headerShown: true }}
+          />
+          <Stack.Screen
+            name={ROUTES.REGISTER_SCREEN}
+            component={RegisterScreen}
+            options={{ title: "Registration", headerShown: true }}
           />
         </Stack.Navigator>
       </Host>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ScrollView, View } from "react-native";
 import Promotion from "../molecules/Promotion";
 import { Portal } from "react-native-portalize";
@@ -8,13 +8,14 @@ import styled from "styled-components";
 import * as ROUTES from "../../../src/constants/Routes";
 import CustomCheckbox from "../molecules/Checkbox";
 import DeliveryCard from "../organisms/DeliveryCard";
-import DeliveryBottomSheet from "../atoms/DeliveryBottomSheet"
+import DeliveryBottomSheet from "../atoms/DeliveryBottomSheet";
 import RadioLabel from "../molecules/RadioLabel";
 import Screen from "../atoms/Screen";
 import Text from "../atoms/Text";
-
+import { UpdateShop } from "../../constants/UserProvider";
 
 // >>>>>>>>DATA<<<<<<<<<<
+
 const sauces = [
   {
     id: 0,
@@ -139,6 +140,7 @@ const together = [
     price: 16.99,
   },
 ];
+
 // >>>>>>>>>>>>>>STYLED<<<<<<<<<<<<<
 const Container = styled(Screen)``;
 
@@ -177,14 +179,21 @@ const RequiredView = styled.View`
   border-radius: 10px;
   padding: 7px;
 `;
-
+const BlackButtonView = styled.Pressable`
+  background-color: #000000;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 16px;
+  margin: 0 22px;
+`;
 // >>>>>>>>>>>>>>LOGIC<<<<<<<<<<<<<
 
 const OrdersDetails = ({ navigation, route }) => {
-  console.log(route.params);
-
-  const { restaurantName, price, desc } = route.params;
-  let num = parseInt(price);
+  const { restaurantName, price, desc, title } = route.params;
+  console.log(restaurantName,price, desc, title);
+  const num = parseInt(price);
   const [total, setTotal] = useState(num);
   const [sizePrice, setSizePrice] = useState(num);
   const [crustPrice, setCrustPrice] = useState(num);
@@ -192,6 +201,13 @@ const OrdersDetails = ({ navigation, route }) => {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
 
   const BottomSheetRef = useRef();
+  const updateShop = UpdateShop();
+
+  const itemToBasket = {
+    title: title,
+    price: total,
+    desc: desc,
+  };
 
   const handlePress = (id, amount, arr, callback) => {
     callback(num + (amount ? amount : 0));
@@ -224,6 +240,12 @@ const OrdersDetails = ({ navigation, route }) => {
     );
     setTotal(totalPrice);
   };
+
+  const handleSubmit = () => {
+    updateShop(itemToBasket);
+    navigation.navigate(ROUTES.HOME_SCREEN);
+  };
+  useEffect(() => {});
 
   return (
     <Container>
@@ -327,6 +349,9 @@ const OrdersDetails = ({ navigation, route }) => {
             title={`Total Price: $${total.toFixed(2)}`}
             onPress={() => BottomSheetRef.current.open()}
           />
+          <BlackButtonView onPress={handleSubmit}>
+            <Text style={{ color: "#ffffff" }}>Go To Checkout</Text>
+          </BlackButtonView>
         </SauceContainer>
         <Portal>
           <DeliveryBottomSheet
@@ -334,7 +359,7 @@ const OrdersDetails = ({ navigation, route }) => {
             modalHeight={850}
             onPress={() => {
               BottomSheetRef.current.close();
-              navigation.navigate(ROUTES.DELIVERY_SCREEN)
+              navigation.navigate(ROUTES.DELIVERY_SCREEN);
             }}
           >
             <View>

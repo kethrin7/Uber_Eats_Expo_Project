@@ -32,7 +32,6 @@ const BlackButtonView = styled.Pressable`
   margin-top: 16px;
 `;
 const Input = styled(TextInput)`
-  border-radius: 0px;
   width: 98%;
   padding:15px 15px 190px ;
   background-color: #eeeeee;

@@ -29,3 +29,4 @@ export const STORE_SCREEN="Store"
 export const ITEM_DETAIL_SCREEN = "ItemDetails";
 export const NOTE="Note"
 export const ORDER_SCREEN="Order"
+export const REGISTER_SCREEN="RegisterScreen"

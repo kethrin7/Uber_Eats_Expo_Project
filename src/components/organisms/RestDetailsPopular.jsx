@@ -29,12 +29,11 @@ const PromoText = styled(Text)`
   text-align: center;
 `;
 
-const RightContainer = styled.View`
-`;
+const RightContainer = styled.View``;
 
 const Title = styled(Text)`
   font-size: 20px;
-  margin-bottom:4px
+  margin-bottom: 4px;
 `;
 
 const Desc = styled(Text)`

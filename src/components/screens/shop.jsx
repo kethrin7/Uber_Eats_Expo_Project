@@ -1,49 +1,44 @@
-import React, { useState } from "react";
-import { ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { LogBox, ScrollView } from "react-native";
 import { Image, View } from "react-native";
 import styled from "styled-components";
 
+import * as ROUTES from "../../constants/Routes";
 import CtgrBtn from "../atoms/CtgrBtn";
 import Screen from "../atoms/Screen";
 import ShopCard from "../organisms/ShopCard";
 import Text from "../atoms/Text";
+import { ShopItems } from "../../constants/UserProvider";
 
 const ShopCardData = [
-  {
-    id: 0,
-    title: "Begs & Megs",
-    subtitle: "1 item • US$43.00",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  },
-  {
-    id: 1,
-    title: "Taco Bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
-  },
-  {
-    id: 3,
-    title: "Tako bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  },
-  {
-    id: 4,
-    title: "Tako bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
-  },
-  {
-    id: 5,
-    title: "Tako bell",
-    subtitle: "1 item • US 43$",
-    desc: "Deliver to San Franciscao Bay Area",
-    image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  },
+  // {
+  //   id: 1,
+  //   title: "Taco Bell",
+  //   subtitle: "1 item • US 43$",
+  //   desc: "Deliver to San Franciscao Bay Area",
+  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
+  // },
+  // {
+  //   id: 3,
+  //   title: "Tako bell",
+  //   subtitle: "1 item • US 43$",
+  //   desc: "Deliver to San Franciscao Bay Area",
+  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
+  // },
+  // {
+  //   id: 4,
+  //   title: "Tako bell",
+  //   subtitle: "1 item • US 43$",
+  //   desc: "Deliver to San Franciscao Bay Area",
+  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
+  // },
+  // {
+  //   id: 5,
+  //   title: "Tako bell",
+  //   subtitle: "1 item • US 43$",
+  //   desc: "Deliver to San Franciscao Bay Area",
+  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
+  // },
 ];
 
 const Container = styled(Screen)``;
@@ -92,7 +87,7 @@ const SubTitle = styled(Text)`
 
 const MainTitleView = styled.View``;
 const MainTitle = styled.Text`
-  font-family: UberMoveMedium;
+  font-family: Uber-Medium;
   position: absolute;
   top: 50px;
   left: 15px;
@@ -104,43 +99,56 @@ const MainTitle = styled.Text`
   width: 100%;
 `;
 
-const Shop = () => {
-  const [data, setData] = useState(ShopCardData);
+const Shop = ({ navigation }) => {
+  // const [data, setData] = useState(ShopCardData);
+  const [data, setData] = useState([]);
+  let shopItems = ShopItems();
+  console.log("this is ", shopItems);
+
+  const testUrl = require("../../../assets/images/ShopScreenImages/shopcarddata.png");
+
+  setTimeout(() => {
+    setData(shopItems);
+  }, 2000);
 
   return (
     <Container>
       <MainTitleView>
         <MainTitle>Carts</MainTitle>
       </MainTitleView>
-      {!data ? (
+      {!data? (
         <InnerContainer>
           <Image
             source={require("../../../assets/images/ShopScreenImages/shopcardimage.png")}
           />
           <Title>Add items to start a basket</Title>
+          <SubTitle>items in cart {data.length}</SubTitle>
           <SubTitle>
             Once you add items from a restaurant or store, your basket will
             appear here.
           </SubTitle>
-          <StartBtn title="Start Shopping"/>
+          <StartBtn
+            title="Start Shopping"
+            onPress={() => navigation.navigate(ROUTES.HOME_SCREEN)}
+          />
         </InnerContainer>
       ) : (
         <CardWrapper>
           <CardsContainer>
-            {ShopCardData.map((item) => (
+            {data.map((item, idx) => (
               <ShopCard
-                key={item.id}
+                key={idx}
                 title={item.title}
-                subtitle={item.subtitle}
+                subtitle={item.price}
                 desc={item.desc}
                 image={item.image}
-                onPress={() => console.log(item.title)}
+                onPress={() => navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN)}
               />
             ))}
           </CardsContainer>
         </CardWrapper>
       )}
-      <OrderBtn title="Orders" iconLeft={imageUrl} light/>
+      <OrderBtn title="Orders" iconLeft={imageUrl} light />
     </Container>
   );
 };

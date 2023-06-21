@@ -18,7 +18,7 @@ const InfoCardWrapper = styled.View`
   margin-left: 20px;
 `;
 const InfoMainTitle = styled.Text`
-  font-family: UberMoveBold;
+  font-family: Uber-Bold;
   margin: 22px 0 0 22px;
   font-style: normal;
   font-weight: 400;
@@ -50,7 +50,7 @@ const SignOut = styled.Text`
   margin: 24px 0 0 22px;
   font-size: 16px;
   color: #1d5c2e;
-  font-family: UberMoveBold;
+  font-family: Uber-Bold;
 `;
 
 const Separator = styled.View`

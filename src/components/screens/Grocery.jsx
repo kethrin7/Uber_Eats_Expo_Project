@@ -11,18 +11,18 @@ import Text from "../atoms/Text";
 const Container = styled(Screen)``;
 
 const SearchView = styled.View`
-  padding: 22px;
+  padding: 22px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0 22px;
 `;
 
 const InnerContainer = styled.View`
-  flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
 `;
@@ -35,7 +35,7 @@ const CardContainer = styled.Pressable`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0 22px 15px 22px;
+  margin:0 22px 15px 22px;
   padding: 10px;
 `;
 const InfoContainer = styled.View`
@@ -85,7 +85,7 @@ const groseryShop = [
   },
 ];
 
-const Grocery = ({navigation}) => {
+const Grocery = ({ navigation }) => {
   return (
     <Container>
       <SearchView>
@@ -107,7 +107,7 @@ const Grocery = ({navigation}) => {
         />
       </CardContainer>
 
-      <InnerContainer style={{ paddingHorizontal: 22 }}>
+      <InnerContainer>
         {groseryShop.map((item, idx) => {
           return (
             <Card
@@ -115,7 +115,7 @@ const Grocery = ({navigation}) => {
               color={item.color}
               imgUrl={item.imgUrl}
               deliveryTime={item.deliveryTime}
-              onPress={()=>navigation.navigate(ROUTES.STORE_SCREEN)}
+              onPress={() => navigation.navigate(ROUTES.STORE_SCREEN)}
             />
           );
         })}

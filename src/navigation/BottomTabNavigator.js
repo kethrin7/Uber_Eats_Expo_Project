@@ -4,7 +4,7 @@ import { Ionicons, MaterialCommunityIcons } from "react-native-vector-icons";
 import * as ROUTES from "../constants/Routes";
 import Browse from "../components/screens/Browse";
 import Home from "../components/screens/Home";
-import Shop from "../components/screens/shop";
+import Shop from "../components/screens/Shop";
 import SettingsNavigator from "../navigation/SettingsNavigator";
 import Grocery from "../components/screens/Grocery";
 

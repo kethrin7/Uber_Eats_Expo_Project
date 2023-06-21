@@ -69,7 +69,7 @@ const Container = styled(Screen)``;
 // topContainer styles
 const Title = styled(Text)`
   font-size: 20px;
-  font-family: UberMoveBold;
+  font-family: Uber-Bold;
 `;
 const MainWrapper = styled.View`
 height:100%;
