@@ -2,7 +2,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import * as ROUTES from "../constants/Routes";
 import Browse from "../components/screens/Browse";
-import Shop from "../components/screens/Shop";
+import Shop from "../components/screens/ShopScreen";
 import Settings from "../components/screens/Settings";
 import BottomTabNavigator from "./BottomTabNavigator";
 
