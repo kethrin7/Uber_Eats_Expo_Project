@@ -336,7 +336,7 @@ const RestaurantDetails = ({ route, navigation }) => {
                   }
                   title={btn.title}
                   onPress={() => handlePress(btn.value)}
-                  key={btn.title}
+                  key={btn.id}
                   black={btn.value === ctgr ? true : false}
                 />
               </CategoryBtnWrapper>

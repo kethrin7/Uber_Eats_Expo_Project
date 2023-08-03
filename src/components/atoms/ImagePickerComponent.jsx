@@ -4,10 +4,9 @@ import styled from "styled-components";
 
 import Text from "./Text";
 
-
 const Container = styled.Pressable``;
 
-const ImagePicker = ({
+const ImagePickerComponent = ({
   title,
   callback,
   children,
@@ -21,12 +20,18 @@ const ImagePicker = ({
     const res = await ImgPicker.getMediaLibraryPermissionsAsync();
     if (res.granted) {
       const launchRes = await ImgPicker.launchImageLibraryAsync();
-      callback(launchRes);
+      if (!launchRes.canceled) {
+        const selectedAsset = launchRes.assets[0];
+        callback(selectedAsset.uri);
+      }
     } else {
       const requestRes = await ImgPicker.requestMediaLibraryPermissionsAsync();
       if (requestRes) {
         const response = await ImgPicker.launchImageLibraryAsync();
-        callback(response.uri);
+        if (!response.canceled) {
+          const selectedAsset = response.assets[0];
+          callback(selectedAsset.uri);
+        }
       }
     }
   };
@@ -39,4 +44,4 @@ const ImagePicker = ({
   );
 };
 
-export default ImagePicker;
+export default ImagePickerComponent;

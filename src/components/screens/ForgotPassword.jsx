@@ -15,4 +15,3 @@ const ForgotPassword = ({ navigation }) => {
 };
 
 export default ForgotPassword;
-

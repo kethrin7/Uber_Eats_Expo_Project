@@ -62,3 +62,8 @@ const Column = styled.View`
   margin-bottom: 16px;
 `;
 export default BottomSheet;
+
+
+
+
+

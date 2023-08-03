@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LogBox, ScrollView } from "react-native";
+import { LogBox, Pressable, ScrollView } from "react-native";
 import { Image, View } from "react-native";
 import styled from "styled-components";
 
@@ -9,37 +9,6 @@ import Screen from "../atoms/Screen";
 import ShopCard from "../organisms/ShopCard";
 import Text from "../atoms/Text";
 import { ShopItems } from "../../constants/UserProvider";
-
-const ShopCardData = [
-  // {
-  //   id: 1,
-  //   title: "Taco Bell",
-  //   subtitle: "1 item • US 43$",
-  //   desc: "Deliver to San Franciscao Bay Area",
-  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
-  // },
-  // {
-  //   id: 3,
-  //   title: "Tako bell",
-  //   subtitle: "1 item • US 43$",
-  //   desc: "Deliver to San Franciscao Bay Area",
-  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  // },
-  // {
-  //   id: 4,
-  //   title: "Tako bell",
-  //   subtitle: "1 item • US 43$",
-  //   desc: "Deliver to San Franciscao Bay Area",
-  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata2.png"),
-  // },
-  // {
-  //   id: 5,
-  //   title: "Tako bell",
-  //   subtitle: "1 item • US 43$",
-  //   desc: "Deliver to San Franciscao Bay Area",
-  //   image: require("../../../assets/images/ShopScreenImages/shopcarddata.png"),
-  // },
-];
 
 const Container = styled(Screen)``;
 const imageUrl = require("../../../assets/images/ShopScreenImages/icon.png");
@@ -100,7 +69,6 @@ const MainTitle = styled.Text`
 `;
 
 const Shop = ({ navigation }) => {
-  // const [data, setData] = useState(ShopCardData);
   const [data, setData] = useState([]);
   let shopItems = ShopItems();
   console.log("this is ", shopItems);
@@ -109,14 +77,14 @@ const Shop = ({ navigation }) => {
 
   setTimeout(() => {
     setData(shopItems);
-  }, 2000);
+  }, 1000);
 
   return (
     <Container>
       <MainTitleView>
         <MainTitle>Carts</MainTitle>
       </MainTitleView>
-      {!data? (
+      {!data ? (
         <InnerContainer>
           <Image
             source={require("../../../assets/images/ShopScreenImages/shopcardimage.png")}
@@ -142,13 +110,20 @@ const Shop = ({ navigation }) => {
                 subtitle={item.price}
                 desc={item.desc}
                 image={item.image}
-                onPress={() => navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN)}
+                onPress={() =>
+                  navigation.navigate(ROUTES.ORDERS_DETAILS_SCREEN)
+                }
               />
             ))}
           </CardsContainer>
         </CardWrapper>
       )}
-      <OrderBtn title="Orders" iconLeft={imageUrl} light />
+      <OrderBtn
+        title="Orders"
+        iconLeft={imageUrl}
+        light
+        onPress={() => navigation.navigate(ROUTES.HOME_SCREEN)}
+      />
     </Container>
   );
 };

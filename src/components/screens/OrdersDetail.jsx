@@ -243,7 +243,7 @@ const OrdersDetails = ({ navigation, route }) => {
 
   const handleSubmit = () => {
     updateShop(itemToBasket);
-    navigation.navigate(ROUTES.HOME_SCREEN);
+    navigation.navigate(ROUTES.SHOP_SCREEN);
   };
   useEffect(() => {});
 

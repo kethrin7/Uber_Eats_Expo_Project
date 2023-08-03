@@ -48,7 +48,7 @@ const Cont = styled.View`
 `;
 const Deals = ({ navigation, route }) => {
   console.log(route.params.page);
-const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
+  const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
 
   const HeaderContainer = ({ onPress, borderBottom }) => {
     return (
@@ -247,7 +247,7 @@ const [type, setTypes] = useState(route.params.page === 1 ? 0 : 1);
         }}
         showsVerticalScrollIndicator={false}
         data={type === 1 ? DeliveryList : PickupList}
-        renderItem={({ item ,idx}) => (
+        renderItem={({ item, idx }) => (
           <MainCard
             key={idx}
             imgUrl={item.imgUrl}

@@ -1,7 +1,7 @@
-import { View, Image, Pressable, TextInput } from "react-native";
+import { View, Pressable, TextInput } from "react-native";
 import React, { useState } from "react";
 import styled from "styled-components";
-import ImagePicker from "../atoms/ImagePicker";
+import ImagePickerComponent from "../atoms/ImagePickerComponent";
 
 import Screen from "../atoms/Screen";
 import SettingDetailsCard from "../organisms/SettingDetailsCard";
@@ -20,12 +20,12 @@ const MainInfoContainer = styled.View`
 `;
 
 const MainImage = styled.Image`
-  width: 90px;
-  height: 90px;
-  margin: 23px 0 30px 0;
+  width: 100px;
+  height: 100px;
+  margin: 23px 0 20px 0;
+  border-radius: 50px;
 `;
-const MainTitle = styled(Text)`
-`;
+const MainTitle = styled(Text)``;
 
 const SettingsDetails = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -41,6 +41,10 @@ const SettingsDetails = ({ navigation }) => {
   };
   const handleNameChange = (newName) => {
     setName(newName);
+  };
+
+  const handleImagePick = (pickedImage) => {
+    setImage(pickedImage);
   };
 
   return (
@@ -66,7 +70,10 @@ const SettingsDetails = ({ navigation }) => {
               <MainTitle>{name}</MainTitle>
             </Pressable>
           )}
-          <ImagePicker title={"EDIT ACCOUNT"} />
+          <ImagePickerComponent
+            title={"EDIT ACCOUNT"}
+            callback={handleImagePick}
+          />
         </MainInfoContainer>
         <SettingDetailsCard />
       </ScrollView>
@@ -75,4 +82,3 @@ const SettingsDetails = ({ navigation }) => {
 };
 
 export default SettingsDetails;
-
